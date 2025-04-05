@@ -45,7 +45,7 @@ Con la idea de este negocio lo que se pretende es que todos los fanáticos a los
 Actualmente existen plataformas que venden pero solo hay dos que son las más usadas como Steam y Epic Games.Pero investigando sobre ellos ninguno de estos engloba una totalidad de catálogo ya que hay algunos que solo están en uno y en otro no, no hay ninguno en el que puedas disponer de un catálogo grande pero estos no disponen de la nube.
 En juegos en la nube existe una reciente que es Amazon Luna donde por una mensualidad te dan un catálogo concreto y algún juego más lo tienes que pagar.
 
-![alt text](image.png)
+![alt text](<../img/Gráfico Análisis DAFO Creativo Multicolor.jpg>)
 
 
  
@@ -116,14 +116,8 @@ En juegos en la nube existe una reciente que es Amazon Luna donde por una mensua
 **Backend:** :Java con Spring Boot con librerias para conectarme a la base de datos y otra de autentificacion de usuarios ya que al estar aprendiendo en las practicas sería la mejor opción para practicar
 **Frontend:**:JavaScript con HTML y CSS
 
-## 4- Planificación
-                            Inicio         Duración                               Descripción
-1-Estudio preliminar    |  3 de abril    |   10 días     |     Idea del proyecto,objetivos,público y tecnologías a usar
+## 4- Planificación 
 
-2-Análise               |  13 de abril   |   1 semana    |      Describir funcionalidades del programa y los usuarios que van intervenir 
-
-3-Deseño                |  20 de abril   |   1 semana    |      Hacer el diseño de la base de datos y un prototipo de como se vería la página
-
-4-Codificación y Pruebas|  27 de abril   |   4 semanas    |       Preparar el backend hacer pruebas y hacer el frontend conectándolos   
+![alt text](../img/calendario.jpg)
 
 [**<-Anterior**](../../README.md)
