@@ -117,13 +117,13 @@ En juegos en la nube existe una reciente que es Amazon Luna donde por una mensua
 **Frontend:**:JavaScript con HTML y CSS
 
 ## 4- Planificación
-                            Inicio      Duración            Descripción
-1-Estudio preliminar     3 de abril      10 días          Idea del proyecto,objetivos,público y tecnologías a usar
+                            Inicio         Duración                               Descripción
+1-Estudio preliminar    |  3 de abril    |   10 días     |     Idea del proyecto,objetivos,público y tecnologías a usar
 
-2-Análise                13 de abril     1 semana          Describir funcionalidades del programa y los usuarios que van intervenir 
+2-Análise               |  13 de abril   |   1 semana    |      Describir funcionalidades del programa y los usuarios que van intervenir 
 
-3-Deseño                 20 de abril     1 semana          Hacer el diseño de la base de datos y un prototipo de como se vería la página
+3-Deseño                |  20 de abril   |   1 semana    |      Hacer el diseño de la base de datos y un prototipo de como se vería la página
 
-4-Codificación y Pruebas 27 de abril     4 semanas          Preparar el backend hacer pruebas y hacer el frontend conectándolos   
+4-Codificación y Pruebas|  27 de abril   |   4 semanas    |       Preparar el backend hacer pruebas y hacer el frontend conectándolos   
 
 [**<-Anterior**](../../README.md)
