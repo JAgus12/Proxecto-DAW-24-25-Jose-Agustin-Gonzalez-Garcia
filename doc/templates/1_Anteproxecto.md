@@ -19,42 +19,36 @@
   - [3- Requirimentos técnicos](#3--requirimentos-técnicos)
   - [4- Planificación](#4--planificación)
 
-> _EXPLICACIÓN_: Este documento será a páxina de explicación de en que consiste o teu proxecto. Coida a súa redacción con todo ou teu mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes, pero non abuses deles.
-> Explica da mellor forma posible de en que consiste o proxecto é que ferramentas e linguaxes de programación empregarás.
 
 ## 1- Descrición do proxecto
 
-> _EXPLICACIÓN_: Realiza unha breve descrición do anteproxecto.Resalta o fundamental *coas túas propias palabras\*\*. Utiliza unha linguaxe correcta, *pero natural\*\*, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
->
-> Neste apartado trátase de describir a análise realizada e a toma de decisións adoptada sobre aspectos básicos ou iniciais do proxecto como:
->
-> - ¿En que consiste o noso proxecto? ¿Cal é o propósito principal da aplicación a desenvolver? ¿Cales son os obxectivos?
-> - ¿O desenvolvemento da aplicación abre unha oportunidade de negocio? ¿É posible comercializala? Como?
-> - ¿Que tecnoloxías son as máis axeitadas para a realización do proxecto?
+El proyecto que se tiene en mente es la creación de una página web del catálogo de videojuegos, en el que un usuario pueda registrarse y iniciar sesión para poder ver su carrito o una bilioteca donde tendrá sus juegos comprados.
+El usuario puede comprar el juego y no jugarlo localmente si no dar la posibilidad de jugarlo en la nube,la finalidad de esto es que un jugador que no puedo jugar a un juego que no lo soporta su ordenador en vez de gastarse en uno nuevo podrá tenerlo pero desde la nube aunque tambien hay la posibilidad de descargarlo si puede mas adelante,cabe la posibilidad de la parte de jugarlo en la nube se pasaria a un pago mensual para una mayor jugabilidad.
+Se ve una posibilidad de negocio ya que este mercado siempre esta en auje,aunque hay plataformas que vendan juegos,como para dar la posibilidad de descargarlo o jugarlo en la nube casi nada ya que es novedad,como ejemplo de plataforma podemos ver Amazon Luna que no lleva ni dos años.La comodidad de tenerlo en la nube sin gastar espacio en local,hace que sea algo muy llamativo para los jugadores,los elevados precios de componentes de un pc también supone un problema para algunos un gasto que no se pueden permitir
+Las tecnologías que mas se adaptan a esto sería en la parte frontend uso de HTML Y CSS y el uso de javascript,también el uso de Figma para ver como sería el diseño,y en backend podría ser Java,PHP etc..segun tus comodidades y conocimientos.
+
 
 ## 2- Empresa
 
-> _EXPLICACIÓN_: Neste apartado desenvolveredes todo o referente os módulos de Empresa e iniciativa emprendedora e de FOL.
-
 ### 2.1- Idea de negocio
 
-> _EXPLICACIÓN_: Define o producto central, o valor engadido e a utilidade. Se se ogrecen productos aumentados, indicalo tamén.
+El producto central es los videojuegos, lo que se busca es dar un cátalogo de ellos y que el cliente pueda comprarlos y descargarlos en su ordenador
+o si sus características no se lo permiten puede jugarlo igual pero un servidor externo,a esto se le da un nombre que es la nube
 
 ### 2.2- Xustificación da idea
 
-> _EXPLICACIÓN_: Neste apartado incluirase a información necesaria para xustificar a realización do proxecto. Debe indicarse como xurdiu a idea do proxecto, que obxectivo se persegue coa súa posta en marcha e/ou que problema vai resolver.
->
-> En este apartado indicade a nivel de idea de negocio:
->
-> - ¿Cal é a necesidade ou necesidades que se pretenden cubrir ou satisfacer?
-> - ¿Existen na actualidade aplicacións ou productos que tenten dar resposta a esa(s) necesidade(s)? ¿En que medida o conseguen?
-> - ¿Trátase de un segmento de mercado desabastecido ou insuficientemente atendido?
-> - ¿Un produto ineficiente? Un mercado novo?
->
-> Para sustentar as xustificación deberás proporcionar datos. Fontes máis utilizadas: INE, IGE, Informes sectoriais de
-> Industria, Statista... Deberás facer unha DAFO.
+La idea surgió,en que las plataformas de venta digital sigue creciendo tanto pero la existencia de varias plataformas hace que en que no todos los juegos estan en una plataforma solo,los jugadores que desean un juego concreto a veces tienen que buscar tmb en otras plataformas y que otros no se pueden permitir jugar a uno porque su ordenador no lo soporta.
 
+Lo que buscamos es englobar todo en una web donde el jugador pueda acceder a todo tipo catálogo de juegos sin tener que dirigirse a otra y también a los sus ordenadores que no soporten el juego darles la posibilidad de poder jugarlos en un servidor externo el cual solo necesitaría una buena conexión y que el jugador se pueda registrar para comprar y tener sus juegos en una biblioteca personal.
+Con la idea de este negocio lo que se pretende es que todos los fanáticos a los videojuegos puedan tener un amplio catálogo que pueda hacer competencia al resto de páginas de venta.
+
+Actualmente existen plataformas que venden pero solo hay dos que son las más usadas como Steam y Epic Games.Pero investigando sobre ellos ninguno de estos engloba una totalidad de catálogo ya que hay algunos que solo están en uno y en otro no, no hay ninguno en el que puedas disponer de un catálogo grande pero estos no disponen de la nube.
+En juegos en la nube existe una reciente que es Amazon Luna donde por una mensualidad te dan un catálogo concreto y algún juego más lo tienes que pagar.
+
+![alt text](image.png)
+
+
+ 
 ### 2.3- Segmento de clientes
 
 > _EXPLICACIÓN_: Neste apartado debes indicar a quen irá dirixido o negocio, os potenciales clientes, respostando as seguinte pregunta: ¿A quen está dirixido?
@@ -118,23 +112,18 @@
 
 ## 3- Requirimentos técnicos
 
-> _EXPLICACIÓN_: Descrición dos medios materiais e das tecnoloxías necesarias que se usarán para desenvolver o proxecto incluíndo as linguaxes de programación frontend e backend, técnicas, librerías, bases de datos, servizos usados, servidores, API’s, etc.
->
-> - **Infraestructura:** dominio web, servidor web dedicado, servidor de base de datos, almacenamento, memoria, ...
-> - **Backend:** tecnoloxías usadas.
-> - **Frontend:** tecnoloxías usadas
+**Infraestructura**:Se desplegará en local desde una máquina virtual o incluso se podría sin el,se usará como servidor de base de datos MySQL, necesitaremos de almacenamiento no mucha cosa porque es instalar el MySQL y por comodidad un IDE como visual Studio Code, y de memoria es importante, pero con unos 16GB o menos no deberia haber problema.
+**Backend:** :Java con Spring Boot con librerias para conectarme a la base de datos y otra de autentificacion de usuarios ya que al estar aprendiendo en las practicas sería la mejor opción para practicar
+**Frontend:**:JavaScript con HTML y CSS
 
 ## 4- Planificación
+                            Inicio      Duración            Descripción
+1-Estudio preliminar     3 de abril      10 días          Idea del proyecto,objetivos,público y tecnologías a usar
 
-> _EXPLICACIÓN_: Inclúe un calendario co tempo estimado a adicar a cada fase do proxecto.
->
-> O proxecto estará formado polas seguintes fases:
->
-> - Estudo preliminar
-> - Análise
-> - Deseño
-> - Codificación e probas (debe ser a fase máis longa).
->
-> Debe facerse un calendario ou un diagrama de Gantt indicando, para cada fase, a data de inicio, a súa duración e breve descrición das tarefas a realizar.
+2-Análise                13 de abril     1 semana          Describir funcionalidades del programa y los usuarios que van intervenir 
+
+3-Deseño                 20 de abril     1 semana          Hacer el diseño de la base de datos y un prototipo de como se vería la página
+
+4-Codificación y Pruebas 27 de abril     4 semanas          Preparar el backend hacer pruebas y hacer el frontend conectándolos   
 
 [**<-Anterior**](../../README.md)
