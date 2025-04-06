@@ -113,9 +113,9 @@ La distinción entre cliente y usuario en que los usuarios son los que accederí
 
 ## 3- Requirimentos técnicos
 
-**Infraestructura**:Se desplegará en local desde una máquina virtual o incluso se podría sin el,se usará como servidor de base de datos MySQL, necesitaremos de almacenamiento no mucha cosa porque es instalar el MySQL y por comodidad un IDE como visual Studio Code, y de memoria es importante, pero con unos 16GB o menos no deberia haber problema.
-**Backend:** :Java con Spring Boot con librerias para conectarme a la base de datos y otra de autentificacion de usuarios ya que al estar aprendiendo en las practicas sería la mejor opción para practicar
-**Frontend:**:JavaScript con HTML y CSS
+**Infraestructura**:Se desplegará en local desde una máquina virtual o incluso se podría sin el,se usará como servidor de base de datos MySQL, necesitaremos de almacenamiento no mucha cosa porque es instalar el MySQL y por comodidad un IDE como visual Studio Code, y de memoria es importante, pero con unos 16GB o menos no deberia haber problema.  
+**Backend:** :Java con Spring Boot con librerias para conectarme a la base de datos y otra de autentificacion de usuarios ya que al estar aprendiendo en las practicas sería la mejor opción para practicar.  
+**Frontend:**:JavaScript con HTML y CSS.  
 
 ## 4- Planificación 
 
