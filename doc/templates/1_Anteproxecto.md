@@ -51,12 +51,13 @@ En juegos en la nube existe una reciente que es Amazon Luna donde por una mensua
  
 ### 2.3- Segmento de clientes
 
-> _EXPLICACIÓN_: Neste apartado debes indicar a quen irá dirixido o negocio, os potenciales clientes, respostando as seguinte pregunta: ¿A quen está dirixido?
->
-> Debes:
->
-> - Indicar o segmento ou segmentos cos rasgos principais e cuantificar o mercado.
-> - E se é o caso, diferenciar entre usuario e cliente.
+La página está dirigida principalmente a personas que estén interesados en juegos de ordenador y les interese la idea de poder 
+jugar en la nube sin necesidad de tenerlo en local,el rango de edad podría oscilar entre personas adolescentes y adultas(14 - 50 años).
+
+Se enfoca a personas que toman el juego como hobbie o casualmente que buscan comodidad al tener un catálogo amplio que lo engloba solo una plataforma y para los que teniendo ordenadores de gama baja puedan seguir jugando en la nube,necesitando la conexión a internet.
+
+La distinción entre cliente y usuario en que los usuarios son los que accederían al catálogo,navegarían y jugarían, y los clientes serían los que pagarían por los juegos que desean jugar o la posibilidad de contratar una suscripcion mensual.
+
 
 ### 2.4- Competencia
 
