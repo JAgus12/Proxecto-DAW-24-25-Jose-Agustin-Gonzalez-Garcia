@@ -45,6 +45,9 @@ Con la idea de este negocio lo que se pretende es que todos los fanáticos a los
 Actualmente existen plataformas que venden pero solo hay dos que son las más usadas como Steam y Epic Games.Pero investigando sobre ellos ninguno de estos engloba una totalidad de catálogo ya que hay algunos que solo están en uno y en otro no, no hay ninguno en el que puedas disponer de un catálogo grande pero estos no disponen de la nube.
 En juegos en la nube existe una reciente que es Amazon Luna donde por una mensualidad te dan un catálogo concreto y algún juego más lo tienes que pagar.
 
+Auje de los juegos en la nube
+https://www.digitalrealty.es/resources/articles/the-future-of-digital-media-cloud-gaming
+
 ![alt text](<../img/Gráfico Análisis DAFO Creativo Multicolor.jpg>)
 
 
