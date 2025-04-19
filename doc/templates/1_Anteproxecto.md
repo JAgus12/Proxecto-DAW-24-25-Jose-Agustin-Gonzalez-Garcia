@@ -22,97 +22,129 @@
 
 ## 1- Descrición do proxecto
 
-El proyecto que se tiene en mente es la creación de una página web del catálogo de videojuegos, en el que un usuario pueda registrarse y iniciar sesión para poder ver su carrito o una bilioteca donde tendrá sus juegos comprados.
-El usuario puede comprar el juego y no jugarlo localmente si no dar la posibilidad de jugarlo en la nube,la finalidad de esto es que un jugador que no puedo jugar a un juego que no lo soporta su ordenador en vez de gastarse en uno nuevo podrá tenerlo pero desde la nube aunque tambien hay la posibilidad de descargarlo si puede mas adelante,cabe la posibilidad de la parte de jugarlo en la nube se pasaria a un pago mensual para una mayor jugabilidad.
-Se ve una posibilidad de negocio ya que este mercado siempre esta en auje,aunque hay plataformas que vendan juegos,como para dar la posibilidad de descargarlo o jugarlo en la nube casi nada ya que es novedad,como ejemplo de plataforma podemos ver Amazon Luna que no lleva ni dos años.La comodidad de tenerlo en la nube sin gastar espacio en local,hace que sea algo muy llamativo para los jugadores,los elevados precios de componentes de un pc también supone un problema para algunos un gasto que no se pueden permitir
-Las tecnologías que mas se adaptan a esto sería en la parte frontend uso de HTML Y CSS y el uso de javascript,también el uso de Figma para ver como sería el diseño,y en backend podría ser Java,PHP etc..segun tus comodidades y conocimientos.
-
+El proyecto va sobre un administrador de tareas para desarrolladores que quieran tener organizado sus proyectos tanto personales como de trabajo y tener un seguimiento más claro.
+La página tendrá la función de que el desarrollador o incluso proyectos de la propia empresa puede crear tareas y declararlas en que entorno están en ese momento,como desarrollo o produción donde podrá dejar comentarios para saber como lleva esa tarea o que problemas tiene que arreglar como una descripción.También puede poner la duración estimada que le llevaría para esa tarea o poner una fecha límite para tener una mejor organización.En el caso de tener varias tareas podrá filtrarlas para saber las que están completadas en desarrollo. Tendrá la opción
+Lo que buscamos es ofrecer a los programadores una web útil para el uso del día a día,organizar su trabajo en las empresas y poder darles algo hecho solo para ellos.
+Se ve posible la oportunidad de negocio ya que la gran demanda que sigue habiendo de desarrolladores a nivel global,hace que sea necesario una herramienta específica para ellos.La web tendría un acceso premium mensual donde daría más acceso a programar más tareas y incluso la posibilidad de compartir esas tareas con compañeros que estarán agregados como amigos para tener un acesso más rápido permitiendo una mayor eficiencia y un trabajo más en equipo,con la gratis solo te daría la posibilidad de tener hasta 2 tareas y no podrías compartirlas.
+Las tecnologías más adecuadas para el proyecto serían:
+-Para el backend Java con Spring Boot
+-Frontend JavaScript con Html,Css y Figma. 
+-MySQL como base de datos
+-Stripe para el sistema de pagos
 
 ## 2- Empresa
 
 ### 2.1- Idea de negocio
 
-El producto central es los videojuegos, lo que se busca es dar un cátalogo de ellos y que el cliente pueda comprarlos y descargarlos en su ordenador
-o si sus características no se lo permiten puede jugarlo igual pero un servidor externo,a esto se le da un nombre que es la nube
+El producto central es una página web hecha para desarrolladores puedan organizar sus tareas de forma eficiente.
+El valor de esto es que está hecha específicamente para programadores.No es un administrador de tareas genérico si no para definir proyectos.
+Se ofrece versión premium donde se podrá gestionar más tareas y poder manejarlas y comentarlas a la vez con compañeros.
 
 ### 2.2- Xustificación da idea
 
-La idea surgió,en que las plataformas de venta digital sigue creciendo tanto pero la existencia de varias plataformas hace que en que no todos los juegos estan en una plataforma solo,los jugadores que desean un juego concreto a veces tienen que buscar tmb en otras plataformas y que otros no se pueden permitir jugar a uno porque su ordenador no lo soporta.
+La idea surgió a partir de la necesidad que se veía para los desarrolladores donde podrían tener algo con una organización que estea adaptada a su forma de trabajo,muchos usan aplicaciones genéricas pero no están diseñadas para su trabajo específico.
+Con este proyecto se busca cubrir una necesidad concreta,los desarrolladores de software,tanto freelance como en empresas pequeñas no tienen una herramienta que sea específica para gestionar sus tareas.
+Actualmente existen aplicaciones como Trello o Notion que están diseñadas para un público más genérico y no están diseñadas específicamente para programadores.
+Se podría decir que en este aspecto está poco atendido aunque el sector de desarrolo no es algo nuevo por lo cual crea una necesidad de poder darles una herramienta.
 
-Lo que buscamos es englobar todo en una web donde el jugador pueda acceder a todo tipo catálogo de juegos sin tener que dirigirse a otra y también a los sus ordenadores que no soporten el juego darles la posibilidad de poder jugarlos en un servidor externo el cual solo necesitaría una buena conexión y que el jugador se pueda registrar para comprar y tener sus juegos en una biblioteca personal.
-Con la idea de este negocio lo que se pretende es que todos los fanáticos a los videojuegos puedan tener un amplio catálogo que pueda hacer competencia al resto de páginas de venta.
+Análises DAFO
 
-Actualmente existen plataformas que venden pero solo hay dos que son las más usadas como Steam y Epic Games.Pero investigando sobre ellos ninguno de estos engloba una totalidad de catálogo ya que hay algunos que solo están en uno y en otro no, no hay ninguno en el que puedas disponer de un catálogo grande pero estos no disponen de la nube.
-En juegos en la nube existe una reciente que es Amazon Luna donde por una mensualidad te dan un catálogo concreto y algún juego más lo tienes que pagar.
-
-Auje de los juegos en la nube
-https://www.digitalrealty.es/resources/articles/the-future-of-digital-media-cloud-gaming
-
-![alt text](<../img/Gráfico Análisis DAFO Creativo Multicolor.jpg>)
-
+![alt text](<../img/Gráfico Análisis DAFO Creativo Multicolor (1).jpg>)
 
  
 ### 2.3- Segmento de clientes
 
-La página está dirigida principalmente a personas que estén interesados en juegos de ordenador y les interese la idea de poder 
-jugar en la nube sin necesidad de tenerlo en local,el rango de edad podría oscilar entre personas adolescentes y adultas(14 - 50 años).
+Va dirigido a desarrolladores de software,como freelancers o empleados de empresas o incluso la propia empresa que quieran organizar sus propias tareas relacionados con el desarrollo de forma más productiva y técnica.
+Actualmente existen unos 28 millones de desarrolladores a nivel global y no solo a nivel remoto cada vez hay más empresas que siguen esta modalidad, y despúes la demanda de proyectos nuevos para empresas grandes y pequeñas hacen que la organización sea clave en estos aspectos.
 
-Se enfoca a personas que toman el juego como hobbie o casualmente que buscan comodidad al tener un catálogo amplio que lo engloba solo una plataforma y para los que teniendo ordenadores de gama baja puedan seguir jugando en la nube,necesitando la conexión a internet.
-
-La distinción entre cliente y usuario en que los usuarios son los que accederían al catálogo,navegarían y jugarían, y los clientes serían los que pagarían por los juegos que desean jugar o la posibilidad de contratar una suscripcion mensual.
-
+Usuario:Es el desarrollador que usa la web
+Cliente:El que paga la suscripción premium para poder dar más funcionalidades a sus tareas.
 
 ### 2.4- Competencia
 
-> _EXPLICACIÓN_: Neste apartado deberase indicar que outras empresas operan no mercado. Que cota de mercado teñen e como están posicionadas. Existencia de productos/servizos substitutivos. Como están posicionados.
+Actualmente hay varias webs que te dan la posibilidad de organizar tus tareas pero no están orientadas al mundo del desarrollo,podemos ver algunas como:
+Trello:Es de la más populares para el administrar tareas
+Notion:Gran herramienta usada principalmente por estudiantes.
+Hay productos que están centrados en el desarrollo como GitHub pero esta está hecha para subir tus proyectos o compartirlos,nosotros hablamos de un organizador de tareas donde tendrás unas pautas propias para continuar en ese proyecto.
 
 ### 2.5- Proposta de valor
 
-> _EXPLICACIÓN_: **Apartado fundamental.**
->
-> - En que se diferencia fronte os competidores.
-> - Que melloras terá fronte os competidores.
-> - Que valor aporta ao mercado.
-> - ¿Porqué mercarán/contratarán este producto/servizo/idea fronte o resto?
+La página se diferencia principalmente de otras por estar diseñado concretamente para desarrolladores.A diferencia de otras competencias como Trello, la nuestra tiene unas diferencias clave:
+-Poder gestionar tareas según el entorno en que esten (desarrollo,staging,produccion,test...)
+-Poder hacer comentarios de como va la tarea o que problemas estas teniendo
+-Dar un tiempo estimado a la tarea y las horas que te lleva al final
+-Buscador donde podrás filtrar tus tareas activas según el entorno en que estean
+-Posibilidad de compartir y trabajar junto a compañeros de trabajo
+-Interfaz clara y organizada
+Que valores aporta al mercado pues:
+-Organización y eficacia a programadores que programan día a día
+-Realizada para todo tipo de formas de trabajo como freelance,Ceo de empresas y pequeñas también.
+Por que deberían usar la página,porque al estar enfocado solo para desarrolladores les da un enfoque claro a su forma de trabajo y de tenerlo todo claro y organizado. 
 
 ### 2.6- Forma xurídica
 
-> _EXPLICACIÓN_: Neste apartado deberedes indicar a forma xurídica: autónomo, soc. Cooperativa, SL,.. Explicando (nun par de frases) por que escolledes esta forma
+La más adecuada para el proyecto es autónomo porque al ser un proyecto inicial con poco coste y sin socios,de esta forma la hace más rápido y cómodo para empezar.
 
 ### 2.7- Investimentos
 
-> _EXPLICACIÓN_: Neste apartado idicaremos o investimentos, aínda que sexa, só unha enumeración de todo o que necesitan (locais, infraestruturas, equipos, suministros, mobiliario...) cuantificando cada elemento.
+Detalles de gastos:
+-Ordenador de trabajo:800€
+-Conexion a Internet:25€/mes
+-Dominio Web:30€/año
+-Publicidad:250€
+-Mesa de trabajo:250€
+
+TOTAL:1.630€
 
 #### 2.7.1- Custos
 
-> > _EXPLICACIÓN_: Neste apartado idicaremos o invertimento
->
-> - Diferenzando custos fixos de variables.
-> - Computando impostos e custos sociais.
+Costes fijos:
+-Conexion a Internet:25€/mes
+-Dominio Web:30€/año
+-Publicidad:250€
+
+Costes variables
+-Comisiones de plataforma de pago según las ventas 2%*venta
+-Posibles problemas puntuales a partir de 100€
 
 #### 2.7.2- Ingresos
 
-> _EXPLICACIÓN_: Neste apartado indicarase unha previsión de ventas e unha política de prezos. Isto implicar apuntar unha previsión de ventas e unha política de prezos.
+Política de precios:
+-Versión gratuita con derecho a manejar dos tareas activas
+-Versión premium(6,99€/mes) donde podrás diseñar tus tareas cuántas quieras y compartirlas con tus compañeros de proyecto.
+
+Previsión de ventas:
+1 año
+usuarios:100
+Ingreso anual:8.400€
+
+2 año
+usuarios:220
+ingreso anual:18.480€
+
+3 año
+usuarios:350
+Ingreso anual:29.400€
 
 ### 2.8- Viabilidade
 
 #### 2.8.1- Viabilidade técnica
 
-> _EXPLICACIÓN_: Neste subapartado deberás defender tendo en conta os datos xa aportados, a viabilidade da realización do proyecto.
-> Evidentemente, para poder xustificar a viabilidade económica do proyecto deberás ter en conta os ingresos. **Ainda que está na parte de empresa, este apartado é interesante dende o punto de vista técnico**
->
-> - Será posible dispoñer dos recursos humanos e medios de produción necesarios (materias primas, maquinaria, instalacións, etc.)?
-> - Existe algún impedimento técnico que dificulte o proceso produtivo?
+Desde la vista técnica el proyecto es viable,el desarrollo de la página como podemos observar no necesitamos una maquinaria compleja ni costosa ya que con solo tener un ordenador decente con conexión a internet podremos diseñarla y ponerla a funcionar sin problema.
+Despues las tecnologías elegidas para el backend y el frontend considero que son las más adecuadas porque dan facibilidad a la escabilidad del proyecto.
 
 #### 2.8.2 - Viabilidade económica
 
-> _EXPLICACIÓN_: Neste subapartado deberás defender con datos a viabilidade da realización do proyecto, para elo debes indicar os custos e investimentos:
+Desde la vista económica,el proyecto se ve viable con inversión y costes bajos al inicio.La web podría puede ser desarrollada por una persona sin problema y al ser ese caso reduce los costes considerablemante no necesitando contratación de personal externo al inicio.
+Con las inversiones dadas en la parte de costes la inversión inicial,es un gasto bajo para empezar con la suma total de 1.330€.Con unos costes fijos entre conexión a internet,dominio web y gasto de publicidad cada año llegaría a una media de 1.440€
+Con los costes que obervamos tanto en inversión inicial y costes fijos podemos decir que la invsersin inicial para este proyecto es asumible para una persona.
 
 #### 2.8.3- Conclusión
 
-> - É viable?
-> - Os beneficios do proxecto son superiores aos costes?
-> - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
+Con lo que hemos estudiado sobre todas las inversiones,ventas y todo el plan económico,podemos decir que la página es viable,los gastos iniciales no supondrían un riesgo para empezar.
+Con la previsión de las ventas estimadas y con el pco gasto se podría llegar a cubrir los costes con los beneficios y a medida que aumenten esto no permitirá mejorar las funcionalidades de la web y la escabilidad de la misma.
+En caso de que haya pérdidas se podría ayudar a cubrir gastos mediante las subvenciones para autonómos de emprendimiento digital o otras como subvenciones para jóvenes o solicitar créditos a bancos.
+En tal caso el proyecto se ve un futuro con escabilidad y ganancias en un nicho con auje.
 
 ## 3- Requirimentos técnicos
 

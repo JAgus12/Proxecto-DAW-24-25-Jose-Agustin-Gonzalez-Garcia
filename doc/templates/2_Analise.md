@@ -8,57 +8,58 @@
   - [5- Normativa](#5--normativa)
   - [6- Melloras futuras](#6--melloras-futuras)
 
-> *EXPLICACION*: Este documento describe os requirimentos para "nome do proxecto" especificando que funcionalidade ofrecerá e de que xeito.
-
 ## 1- Descrición Xeral
 
 >*EXPLICACION*: Descrición Xeral do proxecto
 
+El proyecto consiste en el desarrollo de una aplicación web diseñada para desarrolladores de software el cuál consiste en darles una herramienta de administrar sus tareas para el día a día relacionadas con sus trabajos activos,como proyectos personales o del trabajo.Los usuarios podrán crear una tarea dándole una descripción,comentarios de como la llevan o problemas que han tenido,darles un tiempo estimado o cuánto les llevo,dándoles varias funcionalidades para que sus tareas puedan verse organizadas de una forma clara y eficiente.
+
 ## 2- Funcionalidades
 
->*EXPLICACION* Describir que servizos ou operacións se van poder realizar por medio do noso proxecto, indicando que actores interveñen en cada caso.
->
-> Enumeradas, de maneira que na fase de deseño poidamos definir o diagrama ou configuración correspondente a cada funcionalidade.
-> Cada función ten uns datos de entrada e uns datos de saída. Entre os datos de entrada e de saída, realízase un proceso, que debe ser explicado.
+| Acción  | Descripción    |
+|---------|----------------|
+| Registro Usuarios | Dar de alta un usuario con correo y contraseña|
+| Iniciar sesión | Acceder a la cuenta mediante autentificación |
+| Verificar si esta autentificado | Comprobar si el usuario es premium|
+| Alta de tareas | Crear nuevas tareas |
+| Modificar tareas | Editar datos de la tarea existente(editar comentarios,descripción,estado de la tarea,tiempo estimado..) |
+| Eliminar tareas | Eliminar la tarea |
+| Filtrar tareas | Buscar tareas según el estado que esté esa tarea |
+| Compartir la tarea | Compartir tarea con otras personas que tengan cuenta |
+| Pagar suscripción | Gestionar suscripción a través de Stripe |
+| Seguimiento de tarea | Ver quien hizo el último cambio en la tarea |
 
-Exemplo:
-
-| Acción   |  Descrición        |
-|----------|--------------------|
-| Alta de productos   | Dar de alta os productos na base de datos|
-| Modificar productos | Modificación de productos na base de datos|
-| Presentación dos productos  | Mostra dos productos por medio da páxina web |
 
 ## 3- Tipos de usuarios
 
-> *EXPLICACION* Describir os tipos de usuario que poderán acceder ao noso sistema. Habitualmente os tipos de usuario veñen definidos polas funcionalidades ás cales teñen acceso. En termos xerais existen moitos grupos de usuarios: anónimos, novos, rexistrados, bloqueados, confirmados, verificados, administradores, etc.
->
-> Exemplo:
->
-> - Usuario xenérico, que terá acceso a ...
-> - Usuario técnico, que poderá...
+Usuario rexistrado
+Puede crear un máximo de dos tareas,asignarle estados,comentarios,modficar o eliminarlas y filtrarlas por su estado.
+
+Usuario premium
+Puede crear las tareas que quiera y compartirlas con otros usuarios y ver los cambios hechos por otros usuarios y añadir amigos
 
 ## 4- Contorno operacional
 
-> *EXPLICACION* Neste apartado deben describirse os recursos necesarios, dende o punto de vista do usuario, para poder operar coa aplicación web. Habitualmente consiste nun navegador web actualizado e unha conexión a internet.
-Se é necesario algún hardware ou software adicional, deberá indicarse.
+El usuario necesitará algún dispositivo con conexión a internet para acceder a la web y un navegador actualizado(claramente),crear una cuenta para empezar a usar y para tener una mayor experiencia tener el premium.
 
 ## 5- Normativa
 
-> *EXPLICACION* Investigarase que normativa vixente afecta ao desenvolvemento do proxecto e de que maneira. O proxecto debe adaptarse ás esixencias legais dos territorios onde vai operar.
-> 
-> Pola natureza dos sistema de información, unha lei que se vai a ter que mencionar de forma obrigatoria é la [Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDPGDD)](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673). O ámbito da LOPDPGDD é nacional. Se a aplicación está pensada para operar a nivel europeo, tamén se debe facer referencia á [General Data Protection Regulation (GDPR)](https://eur-lex.europa.eu/eli/reg/2016/679/oj). Na documentación debe afirmarse que o proxecto cumpre coa normativa vixente.
->
-> Para cumplir a LOPDPGDD e/ou GDPR debe ter un apartado na web onde se indique quen é a persoa responsable do tratamento dos datos e para que fins se van utilizar. Habitualmente esta información estructúrase nos seguintes apartados:
->
-> - Aviso legal.
-> - Política de privacidade.
-> - Política de cookies.
->
-> É acosenllable ver [exemplos de webs](https://www.spotify.com/es/legal/privacy-policy/) que conteñan textos legais referenciando a LOPDPGDD ou GDPR.
+Se debe cumplir con la legislación de la protección de datos ya que al ser una web que recoge datos de un usuario,hay que ajustarse a las normativas vigentes.
+Se debe respetar la ley orgánica 3/2018 de 5 de diciembre de la protección de datos personales y la garantía de los derechos digitales(LOPDPGDD),esta ley obliga a que se informe a los usuarios que datos se van a recoger y con que finalidad y quién es el responsable.
+Se está pensado para que funcione a nivel europeo por lo que hay que cumplir con el Reglamento General de Proteccion de Datos (GDPR) que protege la privacidad de las personas en la Unión Europea,esta ley ya requiere consentimiento de los usuarios antes de que se recojan sus datos.
+Para que la web cumple con las leyes debrá tener presente tres apartados importantes:
+-Aviso Legal:Informar de quién es el responsable
+-Politíca de privacidad:Explicar que datos se recogen y como se van usar
+-Política de cookies:si utiliza cookies,indicar que tipos se usan y tener el consentimiento del usuario.
 
 ## 6- Melloras futuras
 
-> *EXPLICACION* É posible que o noso proxecto se centre en resolver un problema concreto que se poderá ampliar no futuro con novas funcionalidades, novas interfaces, etc.
+Ya que la web está pensado para una mayor eficiencia de los desarrolladores,para un futuro se tiene pensado hacerle unas mejoras ya que la web está diseñado para que sea escalable.
+Posibles mejoras:
+-Interfaces para Android y IOS
+-Notificaciones en tiempo real para cuando se detecte un cambio en la tarea por un compañero
+-Posiblidad de integrar algún servicio en la nube como GitHub
+-Panel de estadísticas donde vemos el rendimiento de los usuarios con las tareas
+-Traducciones a varios idiomas y funcionar a nivel global
 
 [**<-Anterior**](../../README.md)
