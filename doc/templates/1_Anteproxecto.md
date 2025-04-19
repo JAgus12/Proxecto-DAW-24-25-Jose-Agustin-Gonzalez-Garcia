@@ -55,9 +55,9 @@ Análises DAFO
 ### 2.3- Segmento de clientes
 
 Va dirigido a desarrolladores de software,como freelancers o empleados de empresas o incluso la propia empresa que quieran organizar sus propias tareas relacionados con el desarrollo de forma más productiva y técnica.
-Actualmente existen unos 28 millones de desarrolladores a nivel global y no solo a nivel remoto cada vez hay más empresas que siguen esta modalidad, y despúes la demanda de proyectos nuevos para empresas grandes y pequeñas hacen que la organización sea clave en estos aspectos.
+Actualmente existen unos 28 millones de desarrolladores a nivel global y no solo a nivel remoto cada vez hay más empresas que siguen esta modalidad, y despúes la demanda de proyectos nuevos para empresas grandes y pequeñas hacen que la organización sea clave en estos aspectos.  
 
-Usuario:Es el desarrollador que usa la web
+Usuario:Es el desarrollador que usa la web  
 Cliente:El que paga la suscripción premium para poder dar más funcionalidades a sus tareas.
 
 ### 2.4- Competencia
@@ -69,17 +69,17 @@ Hay productos que están centrados en el desarrollo como GitHub pero esta está 
 
 ### 2.5- Proposta de valor
 
-La página se diferencia principalmente de otras por estar diseñado concretamente para desarrolladores.A diferencia de otras competencias como Trello, la nuestra tiene unas diferencias clave:
--Poder gestionar tareas según el entorno en que esten (desarrollo,staging,produccion,test...)
--Poder hacer comentarios de como va la tarea o que problemas estas teniendo
--Dar un tiempo estimado a la tarea y las horas que te lleva al final
--Buscador donde podrás filtrar tus tareas activas según el entorno en que estean
--Posibilidad de compartir y trabajar junto a compañeros de trabajo
--Interfaz clara y organizada
-Que valores aporta al mercado pues:
--Organización y eficacia a programadores que programan día a día
--Realizada para todo tipo de formas de trabajo como freelance,Ceo de empresas y pequeñas también.
-Por que deberían usar la página,porque al estar enfocado solo para desarrolladores les da un enfoque claro a su forma de trabajo y de tenerlo todo claro y organizado. 
+La página se diferencia principalmente de otras por estar diseñado concretamente para desarrolladores.A diferencia de otras competencias como Trello, la nuestra tiene unas diferencias clave:  
+-Poder gestionar tareas según el entorno en que esten (desarrollo,staging,produccion,test...)  
+-Poder hacer comentarios de como va la tarea o que problemas estas teniendo  
+-Dar un tiempo estimado a la tarea y las horas que te lleva al final  
+-Buscador donde podrás filtrar tus tareas activas según el entorno en que estean  
+-Posibilidad de compartir y trabajar junto a compañeros de trabajo  
+-Interfaz clara y organizada  
+Que valores aporta al mercado pues:  
+-Organización y eficacia a programadores que programan día a día  
+-Realizada para todo tipo de formas de trabajo como freelance,Ceo de empresas y pequeñas también.  
+Por que deberían usar la página,porque al estar enfocado solo para desarrolladores les da un enfoque claro a su forma de trabajo y de tenerlo todo claro y organizado.   
 
 ### 2.6- Forma xurídica
 
@@ -87,44 +87,44 @@ La más adecuada para el proyecto es autónomo porque al ser un proyecto inicial
 
 ### 2.7- Investimentos
 
-Detalles de gastos:
--Ordenador de trabajo:800€
--Conexion a Internet:25€/mes
--Dominio Web:30€/año
--Publicidad:250€
--Mesa de trabajo:250€
+Detalles de gastos:  
+-Ordenador de trabajo:800€  
+-Conexion a Internet:25€/mes  
+-Dominio Web:30€/año  
+-Publicidad:250€  
+-Mesa de trabajo:250€  
 
-TOTAL:1.630€
+TOTAL:1.630€  
 
 #### 2.7.1- Custos
 
-Costes fijos:
--Conexion a Internet:25€/mes
--Dominio Web:30€/año
--Publicidad:250€
+Costes fijos:  
+-Conexion a Internet:25€/mes  
+-Dominio Web:30€/año  
+-Publicidad:250€  
 
-Costes variables
--Comisiones de plataforma de pago según las ventas 2%*venta
--Posibles problemas puntuales a partir de 100€
+Costes variables  
+-Comisiones de plataforma de pago según las ventas 2%*venta  
+-Posibles problemas puntuales a partir de 100€  
 
 #### 2.7.2- Ingresos
 
-Política de precios:
--Versión gratuita con derecho a manejar dos tareas activas
--Versión premium(6,99€/mes) donde podrás diseñar tus tareas cuántas quieras y compartirlas con tus compañeros de proyecto.
+Política de precios:  
+-Versión gratuita con derecho a manejar dos tareas activas  
+-Versión premium(6,99€/mes) donde podrás diseñar tus tareas cuántas quieras y compartirlas con tus compañeros de proyecto.  
 
-Previsión de ventas:
-1 año
-usuarios:100
-Ingreso anual:8.400€
+Previsión de ventas:  
+1 año  
+usuarios:100  
+Ingreso anual:8.400€  
 
-2 año
-usuarios:220
-ingreso anual:18.480€
+2 año  
+usuarios:220  
+ingreso anual:18.480€  
 
-3 año
-usuarios:350
-Ingreso anual:29.400€
+3 año  
+usuarios:350  
+Ingreso anual:29.400€  
 
 ### 2.8- Viabilidade
 
