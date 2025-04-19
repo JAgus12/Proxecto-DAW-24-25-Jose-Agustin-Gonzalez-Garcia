@@ -26,11 +26,11 @@ El proyecto va sobre un administrador de tareas para desarrolladores que quieran
 La página tendrá la función de que el desarrollador o incluso proyectos de la propia empresa puede crear tareas y declararlas en que entorno están en ese momento,como desarrollo o produción donde podrá dejar comentarios para saber como lleva esa tarea o que problemas tiene que arreglar como una descripción.También puede poner la duración estimada que le llevaría para esa tarea o poner una fecha límite para tener una mejor organización.En el caso de tener varias tareas podrá filtrarlas para saber las que están completadas en desarrollo. Tendrá la opción
 Lo que buscamos es ofrecer a los programadores una web útil para el uso del día a día,organizar su trabajo en las empresas y poder darles algo hecho solo para ellos.
 Se ve posible la oportunidad de negocio ya que la gran demanda que sigue habiendo de desarrolladores a nivel global,hace que sea necesario una herramienta específica para ellos.La web tendría un acceso premium mensual donde daría más acceso a programar más tareas y incluso la posibilidad de compartir esas tareas con compañeros que estarán agregados como amigos para tener un acesso más rápido permitiendo una mayor eficiencia y un trabajo más en equipo,con la gratis solo te daría la posibilidad de tener hasta 2 tareas y no podrías compartirlas.
-Las tecnologías más adecuadas para el proyecto serían:
--Para el backend Java con Spring Boot
--Frontend JavaScript con Html,Css y Figma. 
--MySQL como base de datos
--Stripe para el sistema de pagos
+Las tecnologías más adecuadas para el proyecto serían:  
+  -Para el backend Java con Spring Boot  
+  -Frontend JavaScript con Html,Css y Figma.   
+  -MySQL como base de datos  
+  -Stripe para el sistema de pagos  
 
 ## 2- Empresa
 

@@ -10,8 +10,6 @@
 
 ## 1- Descrición Xeral
 
->*EXPLICACION*: Descrición Xeral do proxecto
-
 El proyecto consiste en el desarrollo de una aplicación web diseñada para desarrolladores de software el cuál consiste en darles una herramienta de administrar sus tareas para el día a día relacionadas con sus trabajos activos,como proyectos personales o del trabajo.Los usuarios podrán crear una tarea dándole una descripción,comentarios de como la llevan o problemas que han tenido,darles un tiempo estimado o cuánto les llevo,dándoles varias funcionalidades para que sus tareas puedan verse organizadas de una forma clara y eficiente.
 
 ## 2- Funcionalidades
@@ -32,10 +30,10 @@ El proyecto consiste en el desarrollo de una aplicación web diseñada para desa
 
 ## 3- Tipos de usuarios
 
-Usuario rexistrado
+Usuario rexistrado  
 Puede crear un máximo de dos tareas,asignarle estados,comentarios,modficar o eliminarlas y filtrarlas por su estado.
 
-Usuario premium
+Usuario premium  
 Puede crear las tareas que quiera y compartirlas con otros usuarios y ver los cambios hechos por otros usuarios y añadir amigos
 
 ## 4- Contorno operacional
@@ -47,10 +45,10 @@ El usuario necesitará algún dispositivo con conexión a internet para acceder 
 Se debe cumplir con la legislación de la protección de datos ya que al ser una web que recoge datos de un usuario,hay que ajustarse a las normativas vigentes.
 Se debe respetar la ley orgánica 3/2018 de 5 de diciembre de la protección de datos personales y la garantía de los derechos digitales(LOPDPGDD),esta ley obliga a que se informe a los usuarios que datos se van a recoger y con que finalidad y quién es el responsable.
 Se está pensado para que funcione a nivel europeo por lo que hay que cumplir con el Reglamento General de Proteccion de Datos (GDPR) que protege la privacidad de las personas en la Unión Europea,esta ley ya requiere consentimiento de los usuarios antes de que se recojan sus datos.
-Para que la web cumple con las leyes debrá tener presente tres apartados importantes:
--Aviso Legal:Informar de quién es el responsable
--Politíca de privacidad:Explicar que datos se recogen y como se van usar
--Política de cookies:si utiliza cookies,indicar que tipos se usan y tener el consentimiento del usuario.
+Para que la web cumple con las leyes debrá tener presente tres apartados importantes:  
+  -Aviso Legal:Informar de quién es el responsable
+  -Politíca de privacidad:Explicar que datos se recogen y como se van usar
+  -Política de cookies:si utiliza cookies,indicar que tipos se usan y tener el consentimiento del usuario.
 
 ## 6- Melloras futuras
 
