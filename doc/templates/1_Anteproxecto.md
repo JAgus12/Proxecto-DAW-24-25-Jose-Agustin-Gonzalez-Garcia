@@ -154,6 +154,6 @@ En tal caso el proyecto se ve un futuro con escabilidad y ganancias en un nicho 
 
 ## 4- Planificación 
 
-![alt text](../img/calendario.jpg)
+![alt text](../img/calendario.png)
 
 [**<-Anterior**](../../README.md)
