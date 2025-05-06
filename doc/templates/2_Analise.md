@@ -53,7 +53,9 @@ Para que la web cumple con las leyes debrá tener presente tres apartados import
 ## 6- Melloras futuras
 
 Ya que la web está pensado para una mayor eficiencia de los desarrolladores,para un futuro se tiene pensado hacerle unas mejoras ya que la web está diseñado para que sea escalable.
+
 Posibles mejoras:
+
 -Interfaces para Android y IOS
 -Notificaciones en tiempo real para cuando se detecte un cambio en la tarea por un compañero
 -Posiblidad de integrar algún servicio en la nube como GitHub
