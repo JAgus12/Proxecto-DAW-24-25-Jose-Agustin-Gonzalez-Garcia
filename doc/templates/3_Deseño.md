@@ -9,7 +9,7 @@
 
 ## 1- Diagrama da arquitectura
 
-![alt text](../img/DiagramadeArquitectura.jpg)
+![alt text](<../img/Diagrama de arquitectura.png>)
 
 ## 2- Casos de uso
 
@@ -17,7 +17,7 @@
 
 ## 3- Diagrama de Base de Datos
 
-![alt text](<../img/BasedeDatos (3).jpg>)
+![alt text](../img/SpringDev.png)
 
 ## 4- Deseño de interface de usuarios
 
