@@ -39,9 +39,19 @@ public class Usuario {
     public Usuario() {
     }
 
- 
 
-
+    public Usuario(String usuario,
+            @Size(min = 8, message = "La contraseña debe tener minimo ocho caracteres") String password, String nombre,
+            String apellidos, String email, Timestamp fecha_nacimiento, Timestamp fecha_alta, Suscripcion suscripcion) {
+        this.usuario = usuario;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.fecha_alta = fecha_alta;
+        this.suscripcion = suscripcion;
+    }
 
     public String getUsuario() {
         return usuario;
