@@ -53,7 +53,6 @@ public class UsuarioServiceManager implements UsuarioService {
         usuarioModificar.setFecha_nacimiento(user.getFecha_nacimiento());
         usuarioModificar.setUsuario(user.getUsuario());
         usuarioModificar.setPassword(user.getPassword());
-        usuarioModificar.setPremium(user.isPremium());
         return this.usuarioRepository.save(usuarioModificar);
     }
 

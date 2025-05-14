@@ -5,6 +5,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import java.sql.Timestamp;
@@ -29,22 +31,17 @@ public class Usuario {
     private Timestamp fecha_nacimiento;
     @CreationTimestamp
     private Timestamp fecha_alta;
-    private boolean premium=false;
+
+    @OneToOne
+    @JoinColumn(name = "suscripcion_id")
+    private Suscripcion suscripcion;
     
     public Usuario() {
     }
 
-    public Usuario(String usuario, String password, String nombre, String apellidos, String email,
-            Timestamp fecha_nacimiento, Timestamp fecha_alta, boolean premium) {
-        this.usuario = usuario;
-        this.password = password;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.fecha_alta = fecha_alta;
-        this.premium = premium;
-    }
+ 
+
+
 
     public String getUsuario() {
         return usuario;
@@ -102,13 +99,6 @@ public class Usuario {
         this.fecha_alta = fecha_alta;
     }
 
-    public boolean isPremium() {
-        return premium;
-    }
-
-    public void setPremium(boolean premium) {
-        this.premium = premium;
-    } 
 
     
 
