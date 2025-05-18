@@ -50,8 +50,8 @@ public class SuscripcionServiceManager implements SuscripcionService {
         suscripcionModificar.setFecha_alta(suscripcion.getFecha_alta());
         suscripcionModificar.setFecha_fin(suscripcion.getFecha_fin());
         suscripcionModificar.setTipo(suscripcion.getTipo());
-        return this.suscripcionRepository.save(suscripcionModificar);
-
+        this.suscripcionRepository.save(suscripcionModificar);
+        return suscripcionModificar;
 
     }
 

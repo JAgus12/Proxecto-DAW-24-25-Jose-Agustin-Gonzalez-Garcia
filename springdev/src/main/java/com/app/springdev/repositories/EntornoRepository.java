@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.app.springdev.model.Entorno;
 
-public interface EntornoRepository extends CrudRepository<Long,Entorno> {
+public interface EntornoRepository extends CrudRepository<Entorno,Long> {
 
 }

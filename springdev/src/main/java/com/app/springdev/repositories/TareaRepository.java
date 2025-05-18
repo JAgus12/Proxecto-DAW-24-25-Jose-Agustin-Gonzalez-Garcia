@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.app.springdev.model.Tarea;
 
-public interface TareaRepository extends CrudRepository<Long,Tarea> {
+public interface TareaRepository extends CrudRepository<Tarea,Long> {
 
 }

@@ -6,10 +6,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Entity
@@ -33,8 +35,11 @@ public class Usuario {
     private Timestamp fecha_alta;
 
     @OneToOne
-    @JoinColumn(name = "suscripcion_id")
+    @JoinColumn(name = "suscripcion")
     private Suscripcion suscripcion;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Tarea> tareas;
     
     public Usuario() {
     }

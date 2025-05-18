@@ -36,8 +36,12 @@ public class Tarea {
     private Timestamp fecha_limite;
 
     @ManyToOne
-    @JoinColumn(name = "entorno_id")
+    @JoinColumn(name = "entorno")
     private Entorno entorno;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario")
+    private Usuario usuario;
     
     
     public Tarea() {
@@ -45,7 +49,7 @@ public class Tarea {
 
 
     public Tarea(Long tarea_id, String titulo, String descripcion, String proyecto, String estado, String tiempo,
-            Timestamp fecha_alta, Timestamp fecha_limite) {
+            Timestamp fecha_alta, Timestamp fecha_limite, Entorno entorno) {
         this.tarea_id = tarea_id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -54,6 +58,7 @@ public class Tarea {
         this.tiempo = tiempo;
         this.fecha_alta = fecha_alta;
         this.fecha_limite = fecha_limite;
+        this.entorno = entorno;
     }
 
 
@@ -136,8 +141,19 @@ public class Tarea {
         this.fecha_limite = fecha_limite;
     }
 
+
+    public Entorno getEntorno() {
+        return entorno;
+    }
+
+
+    public void setEntorno(Entorno entorno) {
+        this.entorno = entorno;
+    }
+
     
 
+    
     
 
     

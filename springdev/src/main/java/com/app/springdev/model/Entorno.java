@@ -1,11 +1,14 @@
 package com.app.springdev.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "entornos")
 public class Entorno {
 
     @Id
@@ -13,7 +16,6 @@ public class Entorno {
     private Long entorno_id;
     @Column(nullable = false,length = 30)
     private String nombre;
-    
     
     public Entorno() {
     }
