@@ -1,0 +1,90 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 15px;
+    background-color: black;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/*=============================================
+=            estilos header            =
+=============================================*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+}
+
+header img{
+    width: 150px;
+}
+
+/*=====  End of estilos header  ======*/
+
+
+
+/*=============================================
+=            estilos login            =
+=============================================*/
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 260px;
+}
+.login label{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+.login input{
+    font-size: 20px;
+    border-radius: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #7E49F3;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 25px;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+    color: #854ADA;
+    background-color: #FDFDFD;
+}
+
+
+/*=====  End of estilos login  ======*/
+
+
+

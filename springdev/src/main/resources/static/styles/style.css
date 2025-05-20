@@ -9,7 +9,6 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     font-size: 15px;
-    background-color: black;
 }
 
 img{
@@ -25,20 +24,126 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 0px 40px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
 }
 
 header a{
     padding: 10px;
-    background-color: blueviolet;
+    background-color: #7E49F3;
     color: aliceblue;
     text-decoration: none;
     border-radius: 10px;
+    font-size: 25px;
 }
 
 header img{
     width: 150px;
 }
+header a:hover{
+    cursor: pointer;
+    color: #854ADA;
+    background-color: #FDFDFD;
+}
 
 /*=====  End of estilos header  ======*/
+
+
+
+
+/*=============================================
+=            estilos principal            =
+=============================================*/
+
+.principal{
+    padding-top: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    padding-bottom: 150px;
+}
+
+.principal h1{
+    color: #7E49F3;
+    font-size: 60px;
+}
+
+
+
+.principal p{
+    margin-top: 20px;
+    color: white;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.principal a{
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #7E49F3;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.principal a:hover{
+     cursor: pointer;
+    color: #854ADA;
+    background-color: #FDFDFD;
+}
+/*=====  End of estilos principal  ======*/
+
+
+
+
+/*=============================================
+=            evoluciona            =
+=============================================*/
+
+.evoluciona{
+    margin: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.evoluciona h2{
+    color: #7E49F3;
+    font-size: 40px;
+}
+
+.evoluciona p{
+    margin: 10px 40px;
+}
+
+.evoluciona img{
+    width: 100%;
+}
+
+/*=====  End of evoluciona  ======*/
+
+
+/*=============================================
+=            estilos footer            =
+=============================================*/
+
+footer{
+    background-color: black;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+footer p{
+    color: white;
+    font-size: 20px;
+}
+
+/*=====  End of estilos footer  ======*/
 

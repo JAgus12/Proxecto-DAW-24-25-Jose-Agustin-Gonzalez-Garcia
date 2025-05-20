@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -40,6 +42,14 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Tarea> tareas;
+
+    @ManyToMany
+    @JoinTable(
+        name = "tareas_compartidas",
+        joinColumns = @JoinColumn(name = "usuario"),
+        inverseJoinColumns = @JoinColumn(name = "tarea_id")
+    )
+    private List<Tarea> tareasCompartidas;
     
     public Usuario() {
     }
