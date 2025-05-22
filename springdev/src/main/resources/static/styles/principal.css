@@ -1,0 +1,132 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/*=============================================
+=            estilos header            =
+=============================================*/
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    background-color:black;
+}
+
+header figure{
+    width: 120px;
+}
+.izquierda ul{
+    display: flex;
+    list-style: none;
+    padding: 1.5rem;
+    gap: 5px;
+}
+.izquierda ul i:hover{
+    cursor: pointer;
+}
+.izquierda i{
+    font-size: 30px;
+}
+.derecha ul{
+    padding: 1rem;
+    display: flex;
+    list-style: none;
+    gap: 12px;
+}
+
+.derecha li{
+    color: white;
+}
+
+.derecha a{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #7E49F3;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+}
+
+.derecha a:hover{
+    cursor: pointer;
+    color: #854ADA;
+    background-color: #FDFDFD;
+}
+
+/*=====  End of estilos header  ======*/
+
+
+
+/*=============================================
+=            estilos sidebar            =
+=============================================*/
+
+.sidebar{
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color:black;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+nav a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-size: 20px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+    color: black;
+}
+nav li{
+    padding: 10px;
+}
+nav i{
+    font-size: 30px;
+    margin-right: 20px;
+    color: white;
+}
+nav a{
+    color: white;
+}
+nav a:hover{
+ background-color: #F7F9FA;
+ cursor: pointer;
+}
+
+.selected{
+    background-color:#EBF0FF;
+    color: #355CC0;
+}
+
+/*=====  End of estilos sidebar  ======*/
+
+
+
+
+
+
+
+
+
+

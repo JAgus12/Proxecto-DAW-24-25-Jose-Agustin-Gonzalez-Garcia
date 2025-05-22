@@ -9,6 +9,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     font-size: 15px;
+    font-family: "Playfair Display",serif;
 }
 
 img{
@@ -30,19 +31,19 @@ header{
     width: 100%;
 }
 
-header a{
+.derecha a{
     padding: 10px;
     background-color: #7E49F3;
     color: aliceblue;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 header img{
     width: 150px;
 }
-header a:hover{
+.derecha a:hover{
     cursor: pointer;
     color: #854ADA;
     background-color: #FDFDFD;
@@ -88,7 +89,7 @@ header a:hover{
     color: aliceblue;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .principal a:hover{
@@ -120,7 +121,8 @@ header a:hover{
 }
 
 .evoluciona p{
-    margin: 10px 40px;
+    margin: 10px 35%;
+    text-align: justify;
 }
 
 .evoluciona img{
@@ -146,4 +148,17 @@ footer p{
 }
 
 /*=====  End of estilos footer  ======*/
+
+
+/*=============================================
+=            media queries            =
+=============================================*/
+
+@media (max-width:480px) {
+    .evoluciona p{
+        margin: 10px 10%;
+    }
+}
+
+/*=====  End of media queries  ======*/
 

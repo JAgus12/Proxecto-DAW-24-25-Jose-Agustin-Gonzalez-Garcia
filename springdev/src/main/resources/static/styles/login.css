@@ -10,6 +10,8 @@ body {
     grid-template-rows: auto 1fr auto;
     font-size: 15px;
     background-color: black;
+    font-family: "Playfair Display",serif;
+    height: 100vh;
 }
 
 img{
@@ -28,11 +30,10 @@ header{
     justify-content: space-between;
     padding: 0px 40px;
     background-color: black;
-    position: fixed;
     width: 100%;
 }
 
-header img{
+header figure{
     width: 150px;
 }
 
@@ -44,12 +45,25 @@ header img{
 =            estilos login            =
 =============================================*/
 
+main{
+    background-image: url(../assets/login.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .login{
+    margin-left: 50%;
+    background-color: black;
+    padding: 40px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 260px;
 }
 .login label{
     color: white;
@@ -73,7 +87,7 @@ button{
     color: aliceblue;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 18px;
     border: none;
 }
 
@@ -85,6 +99,60 @@ button:hover{
 
 
 /*=====  End of estilos login  ======*/
+
+
+/*=============================================
+=            estilos footer            =
+=============================================*/
+
+footer{
+    background-color: black;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+footer p{
+    color: white;
+    font-size: 20px;
+}
+
+/*=====  End of estilos footer  ======*/
+
+
+
+/*=============================================
+=            estilos ojo            =
+=============================================*/
+
+.fa-eye {
+  position: relative;
+  left: 135px;
+  top: -20px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.fa-eye:hover {
+  color: white;
+}
+
+/*=====  End of estilos ojo  ======*/
+
+
+
+
+/*=============================================
+=            media queries            =
+=============================================*/
+
+@media (max-width:480px){
+    .login{
+        margin: 0;
+    }
+}
+
+/*=====  End of media queries  ======*/
 
 
 
