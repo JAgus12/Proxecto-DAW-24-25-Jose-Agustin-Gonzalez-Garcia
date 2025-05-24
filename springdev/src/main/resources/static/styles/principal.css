@@ -9,7 +9,9 @@ img{
     object-fit: cover;
 }
 
-
+body{
+    font-family: "Playfair Display",serif;
+}
 /*=============================================
 =            estilos header            =
 =============================================*/
@@ -24,19 +26,23 @@ header{
 }
 
 header figure{
-    width: 120px;
+    width: 100px;
 }
+
+
 .izquierda ul{
     display: flex;
     list-style: none;
     padding: 1.5rem;
-    gap: 5px;
+    align-items: center;
 }
 .izquierda ul i:hover{
     cursor: pointer;
 }
 .izquierda i{
+    color: white;
     font-size: 30px;
+    display: none;
 }
 .derecha ul{
     padding: 1rem;
@@ -48,6 +54,8 @@ header figure{
 .derecha li{
     color: white;
 }
+
+
 
 .derecha a{
     margin-top: 20px;
@@ -75,11 +83,16 @@ header figure{
 =============================================*/
 
 .sidebar{
-    width: 250px;
+    width: 230px;
     height: 100%;
     position: fixed;
     z-index: 100;
     background-color:black;
+    transition: .5s all ease-in-out;
+}
+
+.sidebar.menu-toggle{
+    width: 230px;
 }
 
 nav ul{
@@ -112,7 +125,14 @@ nav a{
 nav a:hover{
  background-color: #F7F9FA;
  cursor: pointer;
+ color: black;
 }
+
+nav a:hover i{
+    color:black;
+}
+
+
 
 .selected{
     background-color:#EBF0FF;
@@ -123,6 +143,64 @@ nav a:hover{
 
 
 
+/*=============================================
+=            estilos main            =
+=============================================*/
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*=====  End of estilos main  ======*/
+
+
+
+/*=============================================
+=            estilos mis tareas            =
+=============================================*/
+
+
+.tareas h2{
+    margin-top: 20px;
+}
+
+
+
+/*=============================================
+=            estilos crear Tarea            =
+=============================================*/
+
+.crearTarea{
+    display: none;
+}
+
+/*=====  End of estilos crear Tarea  ======*/
+
+
+/*=====  End of estilos mis tareas  ======*/
+
+
+
+
+/*=============================================
+=            media queries            =
+=============================================*/
+
+@media (max-width:480px){
+    .izquierda i{
+        display: block;
+    }
+    .derecha ul li:first-child{
+    display: none;
+    }
+    .sidebar{
+        width: 0px;
+    }
+}
+
+/*=====  End of media queries  ======*/
 
 
 

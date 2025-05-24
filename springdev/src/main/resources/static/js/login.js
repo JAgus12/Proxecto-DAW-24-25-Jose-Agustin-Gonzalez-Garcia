@@ -11,7 +11,7 @@ const $d=document,
 $inicio.addEventListener("click",ev=>{
     ev.preventDefault()
     console.log("click")
-    window.location.href='/src/main/resources/static/principal.html'
+    window.location.href='../principal.html'
 })
 
 $ver.addEventListener("click",ev=>{
