@@ -206,12 +206,14 @@ h2{
 
 
 .tareas select{
+    text-align: center;
     font-size: 20px;
-    width: 150px;
-    border-radius: 70px;
+    width: 180px;
+    border-radius: 30px;
     background-color: #D9D9D9;
     color: black;
     height: 35px;
+    border: none;
 }
 
 .listado{
