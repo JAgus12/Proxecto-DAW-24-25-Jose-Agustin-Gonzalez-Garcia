@@ -78,16 +78,102 @@
             </p>
         </form>
         <section class="listado">
-            <section class="tarea">
-                <p>Bugs de Sprindev</p>
-                <p>fecha alta</p>
-                <p>Estado</p>
+             <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
+            </section>
+               <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
+            </section>
+               <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
+            </section>
+               <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
             </section>
         </section>
-
     </section>
     <section class="crearTarea">
         <h2>Nueva Tarea</h2>
+        <form action="">
+            <input type="text" name="nombre" placeholder="titulo">
+            <input type="text" name="proyecto" placeholder="proyecto">
+            <input type="text" name="tiempo" placeholder="tiempo">
+            <input type="text" name="fechalimite" placeholder="fechalimite">
+            <input type="text" name="descripcion" placeholder="descripcion">
+            <label for="estado">Estado:</label>
+            <select name="estado" id="estado">
+                <option value="">Seleccione estado</option>
+            </select>
+            <label for="entorno">Entorno:</label>
+            <select name="entorno" id="entorno">
+                <option value="">Seleccione entorno</option>
+            </select>
+            <p>
+                <button>Crear</button>
+                <button>Cancelar</button>
+            </p>
+        </form>
+
     </section>
     <section class="Compartidos">
 
@@ -95,6 +181,45 @@
     <section class="cuenta">
 
     </section>
+    <dialog id="detalles">
+        <section>
+            <h3>Tarea</h3>
+            <i class="fa-solid fa-xmark" onclick="document.getElementById('detalles').close()"></i>
+            <p>
+                Descripción:<span>sss</span>
+            </p>
+            <p>
+                Estado:<span></span>
+            </p>
+            <p>
+                Entorno:<span></span>
+            </p>
+            <p>
+                Fecha limite:<span></span>
+            </p>
+            <p>
+                Tiempo:<span></span>
+            </p>
+            <p>
+                Proyecto:<span></span>
+            </p>
+         
+        </section>
+        <section class="buscar">
+            <h4>Compartir tarea</h4>
+            <p>
+                <label for="usuario">Buscar Usuario:</label>
+                <input type="text" name="usuario">
+                <button class="buscarUsuario">Buscar</button>
+            </p>
+    
+            <select name="usuarios" id="usuarios">
+                <option value="">Selecciona un usuario</option>
+            </select>
+            <button class="compartir">Compartir</button>
+        </section>
+        
+    </dialog>
 </main>
 
 </body>
