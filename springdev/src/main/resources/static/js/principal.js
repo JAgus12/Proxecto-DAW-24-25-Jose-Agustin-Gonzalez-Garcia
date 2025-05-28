@@ -45,21 +45,25 @@ $salir.addEventListener("click",ev=>{
 })
 
 $navmisTareas.addEventListener("click",ev=>{
+    $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($misTareas)
 })
 
 $navCrearTarea.addEventListener("click",ev=>{
+    $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($crearTarea)
 })
 
 $navCompartidos.addEventListener("click",ev=>{
+    $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($compartidos)
 })
 
 $navCuenta.addEventListener("click",ev=>{
+    $sidebar.classList.remove("menu-toggle")
     mostrarSeccion($cuenta)
     document.body.style.backgroundColor="black"
 })
