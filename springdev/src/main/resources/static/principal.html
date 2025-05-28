@@ -33,25 +33,25 @@
     <nav>
         <ul>
             <li>
-                <a data-seccion="tareas">
+                <a id="tareas">
                     <i class="fa-solid fa-chart-line"></i>
                     Mis Tareas
                 </a>
             </li>
             <li>
-                <a>
+                <a id="crearTarea">
                 <i class="fa-solid fa-book-open"></i>
                   Crear Tarea
                 </a>
             </li>
             <li>
-                <a>
+                <a id="compartir">
                     <i class="fa-solid fa-users-between-lines"></i>
                     Compartidos
                 </a>
             </li>
             <li>
-                <a>
+                <a id="cuenta">
                     <i class="fa-regular fa-circle-user"></i>
                     Cuenta
                 </a>
@@ -175,11 +175,84 @@
         </form>
 
     </section>
-    <section class="Compartidos">
-
+    <section class="compartidos">
+        <h2>Compartidos</h2>
+        <section class="listadoCompartidos">
+            <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles-compartir').showModal()">Detalles</button>
+            </section>
+            <section class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles-compartir').showModal()">Detalles</button>
+            </section>
+            <sehction class="tarea">
+                <p>
+                    Bugs de Sprindev
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </p>
+              
+                <p class="fecha">Created:</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado:
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo:
+                </p>
+                <button onclick="document.getElementById('detalles-compartir').showModal()">Detalles</button>
+            </section>
+        </section>
     </section>
     <section class="cuenta">
-
+        <h2>Cuenta</h2>
+        <section>
+            <i class="fa-solid fa-circle-user"></i>
+            <p>User</p>
+        </section>
+        <section>
+            <p>Nombre Completo</p>
+            <p>Agustin Gonzalez dfwfdsf</p>
+            <p>Email</p>
+            <p>akdjk@gmail.com</p>
+            <p>Fecha Nacimiento</p>
+            <p>12/07/2005</p>
+            <p>Mi Suscripción</p>
+            <p>Free</p>
+            <p>Fecha Renovación</p>
+            <p>12/05/25</p>
+            <button>Premium</button>
+        </section>
     </section>
     <dialog id="detalles">
         <section>
@@ -203,7 +276,6 @@
             <p>
                 Proyecto:<span></span>
             </p>
-         
         </section>
         <section class="buscar">
             <h4>Compartir tarea</h4>
@@ -219,6 +291,33 @@
             <button class="compartir">Compartir</button>
         </section>
         
+    </dialog>
+    <dialog id="detalles-compartir">
+        <section>
+            <h3>Tarea</h3>
+            <i class="fa-solid fa-xmark" onclick="document.getElementById('detalles-compartir').close()"></i>
+            <p>
+                Descripción:<span>sss</span>
+            </p>
+            <p>
+                Estado:<span></span>
+            </p>
+            <p>
+                Entorno:<span></span>
+            </p>
+            <p>
+                Fecha limite:<span></span>
+            </p>
+            <p>
+                Tiempo:<span></span>
+            </p>
+            <p>
+                Proyecto:<span></span>
+            </p>
+            <p>
+                Compartido con: <span></span>
+            </p>
+        </section>
     </dialog>
 </main>
 
