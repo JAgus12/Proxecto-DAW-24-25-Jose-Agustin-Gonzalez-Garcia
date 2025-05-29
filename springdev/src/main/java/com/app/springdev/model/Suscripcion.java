@@ -28,7 +28,7 @@ public class Suscripcion {
     @CreationTimestamp
     @Column(nullable = false)
     private Timestamp fecha_alta;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Timestamp fecha_fin;
 
     @OneToOne(mappedBy = "suscripcion")
