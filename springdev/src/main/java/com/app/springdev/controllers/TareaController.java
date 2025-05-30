@@ -31,6 +31,12 @@ public class TareaController {
         return this.tareaServiceManager.findAll();
     }
 
+    @GetMapping("/usuario/{usuario}")
+    @Transactional(readOnly = true)
+    public List<Tarea> findTareaUsuario(@PathVariable String usuario){
+        return this.tareaServiceManager.findTareaUsuario(usuario);
+    }
+
     @GetMapping("/{tarea_id}")
     @Transactional(readOnly = true)
     public Tarea findTarea(@PathVariable Long tarea_id){

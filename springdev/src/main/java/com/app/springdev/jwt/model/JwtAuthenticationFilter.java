@@ -37,8 +37,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException 
     {
+        String path= request.getRequestURI();
 
-          final String token = getTokenFromRequest(request);
+        if(path.startsWith("/auth")
+        || path.startsWith("/css")
+        || path.startsWith("/js")
+        || path.startsWith("/images")
+        || path.equals("/")
+        || path.endsWith(".html")
+        || path.endsWith(".css")
+        || path.endsWith(".js")
+        || path.endsWith(".ico")){
+        filterChain.doFilter(request, response);
+        return;
+    }
+
+        final String token = getTokenFromRequest(request);
         final String username;
 
         if(token==null){
@@ -68,7 +82,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String getTokenFromRequest(HttpServletRequest request) {
         final String authHeader=request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")){
+        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer")){
             return authHeader.substring(7);
         }
         return null;

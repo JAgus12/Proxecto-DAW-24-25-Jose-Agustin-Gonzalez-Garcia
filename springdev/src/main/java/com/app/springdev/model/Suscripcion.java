@@ -31,8 +31,6 @@ public class Suscripcion {
     @Column(nullable = true)
     private Timestamp fecha_fin;
 
-    @OneToOne(mappedBy = "suscripcion")
-    private Usuario usuario;
     
     
     public Suscripcion() {
@@ -44,7 +42,6 @@ public class Suscripcion {
         this.tipo = tipo;
         this.fecha_alta = fecha_alta;
         this.fecha_fin = fecha_fin;
-        this.usuario = usuario;
     }
 
 
@@ -80,13 +77,6 @@ public class Suscripcion {
         this.tipo = tipo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 
     

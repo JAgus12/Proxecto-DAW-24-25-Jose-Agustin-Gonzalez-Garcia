@@ -32,9 +32,19 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authRequest ->
                 authRequest
-                    .requestMatchers("/auth/**").permitAll()
-                    .anyRequest().authenticated()
-            )
+                .requestMatchers("/auth/**").permitAll()  // rutas públicas
+                .requestMatchers(
+                    "/", 
+                    "/landing.html", 
+                    "/login.html",
+                    "/assets/**",
+                    "/styles/**",
+                    "/js/**",
+                    "/principal.html"
+                ).permitAll()  // recursos estáticos y páginas públicas
+                .anyRequest().permitAll()  // todo lo demás requiere token
+        )
+            
             .sessionManagement(sessionManager -> sessionManager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authenticationProvider(authProvider)
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

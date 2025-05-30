@@ -6,14 +6,18 @@ import org.springframework.stereotype.Service;
 
 import com.app.springdev.model.Tarea;
 import com.app.springdev.repositories.TareaRepository;
+import com.app.springdev.repositories.UsuarioRepository;
 
 @Service
 public class TareaServiceManager implements TareaService {
 
     private final TareaRepository tareaRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public TareaServiceManager(TareaRepository tareaRepository) {
+    
+    public TareaServiceManager(TareaRepository tareaRepository, UsuarioRepository usuarioRepository) {
         this.tareaRepository = tareaRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Override
@@ -56,6 +60,13 @@ public class TareaServiceManager implements TareaService {
         this.tareaRepository.save(tareaModificar);
         return tareaModificar;
     }
+
+    @Override
+    public List<Tarea> findTareaUsuario(String usuario) {
+        return this.tareaRepository.findTareaUsuario(usuario);
+    }
+
+    
 
     
 }

@@ -1,3 +1,4 @@
+-- Active: 1744285010485@@127.0.0.1@3306@springdev
 -- Usuario ADMIN
 INSERT INTO usuarios (
     usuario,
@@ -66,3 +67,18 @@ INSERT INTO suscripciones (
     DATE_ADD(NOW(6), INTERVAL 20 DAY),
     'PREMIUM'
 );
+
+INSERT INTO entornos (nombre) VALUES 
+('Local'),
+('Desarrollo'),
+('Testing'),
+('Integración'),
+('Staging'),
+('Producción');
+
+
+INSERT INTO tareas (entorno, fecha_alta, fecha_limite, proyecto, tiempo, titulo, estado, descripcion, usuario)
+VALUES 
+(1, NOW(), '2025-06-10 18:00:00.000000', 'SpringDev', '3 horas', 'Implementar login', 'En desarrollo', 'Crear sistema de autenticación JWT', 'maria123'),
+
+(3, NOW(), '2025-06-15 23:59:00.000000', 'SpringDev', '1 hora', 'Diseñar base de datos', 'Pendiente', 'Definir tablas y relaciones', 'maria123');

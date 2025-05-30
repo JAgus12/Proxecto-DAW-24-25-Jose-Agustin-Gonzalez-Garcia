@@ -44,7 +44,7 @@ public class JwtService {
     }
 
     public String getUsernameFromToken(String token) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUsernameFromToken'");
+         return getClaims(token, Claims::getSubject);
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {

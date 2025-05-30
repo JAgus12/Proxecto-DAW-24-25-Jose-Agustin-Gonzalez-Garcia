@@ -8,7 +8,7 @@ const $d=document,
 // console.log($inicio)
 // console.log($ver)
 // console.log($password)
-console.log($usuario)
+//console.log($usuario)
 
 const urlLogin="http://localhost:8080/auth/login"
 
@@ -35,7 +35,11 @@ function comprobarLogin(password,usuario) {
         url:urlLogin,
         method:"POST",
         fExito:json=>{
-            console.log(json)
+            if(json.token){
+                localStorage.setItem('token',json.token)
+                localStorage.setItem('user',usuario)
+                window.location.href="/principal.html"
+            }
         },
         fError:error=>console.log(error),
         data:{
@@ -47,7 +51,8 @@ function comprobarLogin(password,usuario) {
 
 $inicioSesion.addEventListener("click",ev=>{
     ev.preventDefault()
-    comprobarLogin()
+    //console.log($usuario.value,$password.value)
+    comprobarLogin($password.value,$usuario.value)
     //console.log("click")
     //window.location.href='../principal.html'
 })

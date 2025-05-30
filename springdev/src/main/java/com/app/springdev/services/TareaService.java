@@ -7,6 +7,7 @@ import com.app.springdev.model.Tarea;
 public interface TareaService {
 
     List<Tarea> findAll();
+    List<Tarea> findTareaUsuario(String usuario);
     Tarea findById(Long tarea_id);
     Tarea save(Tarea tarea);
     Tarea deleteById(Long tarea_id);
