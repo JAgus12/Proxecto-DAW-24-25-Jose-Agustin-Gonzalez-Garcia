@@ -78,7 +78,7 @@
             </p>
         </form>
         <section class="listado">
-             <section class="tarea">
+             <!-- <section class="tarea">
                 <p>
                     Bugs de Sprindev
                     <i class="fa-solid fa-pen"></i>
@@ -95,61 +95,7 @@
                     Tiempo:
                 </p>
                 <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
-            </section>
-               <section class="tarea">
-                <p>
-                    Bugs de Sprindev
-                    <i class="fa-solid fa-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </p>
-              
-                <p class="fecha">Created:</p>
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    Estado:
-                </p>
-                <p>
-                   <i class="fa-solid fa-clock"></i>
-                    Tiempo:
-                </p>
-                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
-            </section>
-               <section class="tarea">
-                <p>
-                    Bugs de Sprindev
-                    <i class="fa-solid fa-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </p>
-              
-                <p class="fecha">Created:</p>
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    Estado:
-                </p>
-                <p>
-                   <i class="fa-solid fa-clock"></i>
-                    Tiempo:
-                </p>
-                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
-            </section>
-               <section class="tarea">
-                <p>
-                    Bugs de Sprindev
-                    <i class="fa-solid fa-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </p>
-              
-                <p class="fecha">Created:</p>
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    Estado:
-                </p>
-                <p>
-                   <i class="fa-solid fa-clock"></i>
-                    Tiempo:
-                </p>
-                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
-            </section>
+            </section> -->
         </section>
     </section>
     <section class="crearTarea">
@@ -159,14 +105,23 @@
             <input type="text" name="proyecto" placeholder="proyecto">
             <input type="text" name="tiempo" placeholder="tiempo">
             <input type="text" name="fechalimite" placeholder="fechalimite">
-            <input type="text" name="descripcion" placeholder="descripcion">
+            <textarea name="descripcion" id="descripcion"></textarea>
             <label for="estado">Estado:</label>
             <select name="estado" id="estado">
                 <option value="">Seleccione estado</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="En desarrollo">En desarrollo</option>
+                <option value="Completada">Completada</option>
             </select>
             <label for="entorno">Entorno:</label>
             <select name="entorno" id="entorno">
                 <option value="">Seleccione entorno</option>
+                <option value="1">Local</option>
+                <option value="2">Desarrollo</option>
+                <option value="3">Testing</option>
+                <option value="4">Integración</option>
+                <option value="5">Staging</option>
+                <option value="6">Producción</option>
             </select>
             <p>
                 <button>Crear</button>

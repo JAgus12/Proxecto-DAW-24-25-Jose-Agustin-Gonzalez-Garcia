@@ -79,6 +79,6 @@ INSERT INTO entornos (nombre) VALUES
 
 INSERT INTO tareas (entorno, fecha_alta, fecha_limite, proyecto, tiempo, titulo, estado, descripcion, usuario)
 VALUES 
-(1, NOW(), '2025-06-10 18:00:00.000000', 'SpringDev', '3 horas', 'Implementar login', 'En desarrollo', 'Crear sistema de autenticación JWT', 'maria123'),
+(1, NOW(), '2025-06-10 18:00:00.000000', 'SpringDev', '3 horas', 'Implementar login', 'En desarrollo', 'Crear sistema de autenticación JWT', 'juan123'),
 
-(3, NOW(), '2025-06-15 23:59:00.000000', 'SpringDev', '1 hora', 'Diseñar base de datos', 'Pendiente', 'Definir tablas y relaciones', 'maria123');
+(3, NOW(), '2025-06-15 23:59:00.000000', 'SpringDev', '1 hora', 'Diseñar base de datos', 'Pendiente', 'Definir tablas y relaciones', 'juan123');

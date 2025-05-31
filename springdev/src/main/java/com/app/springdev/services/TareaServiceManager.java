@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.app.springdev.model.Tarea;
+import com.app.springdev.model.Usuario;
 import com.app.springdev.repositories.TareaRepository;
 import com.app.springdev.repositories.UsuarioRepository;
 
@@ -44,6 +45,8 @@ public class TareaServiceManager implements TareaService {
 
     @Override
     public Tarea save(Tarea tarea) {
+        Usuario usuario=this.usuarioRepository.findById(tarea.getUsuario().getUsuario()).get();
+        tarea.setUsuario(usuario);
         return this.tareaRepository.save(tarea);
     }
 

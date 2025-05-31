@@ -4,6 +4,9 @@ import java.sql.Timestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +43,8 @@ public class Tarea {
     private Entorno entorno;
 
     @ManyToOne
-    @JoinColumn(name = "usuario")
+    @JoinColumn(name = "usuario",nullable = false)
+    @JsonBackReference
     private Usuario usuario;
     
     
@@ -49,7 +53,7 @@ public class Tarea {
 
 
     public Tarea(Long tarea_id, String titulo, String descripcion, String proyecto, String estado, String tiempo,
-            Timestamp fecha_alta, Timestamp fecha_limite, Entorno entorno) {
+            Timestamp fecha_alta, Timestamp fecha_limite, Entorno entorno, Usuario usuario) {
         this.tarea_id = tarea_id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -59,7 +63,11 @@ public class Tarea {
         this.fecha_alta = fecha_alta;
         this.fecha_limite = fecha_limite;
         this.entorno = entorno;
+        this.usuario = usuario;
     }
+
+
+
 
 
     public Long getTarea_id() {
@@ -151,6 +159,17 @@ public class Tarea {
         this.entorno = entorno;
     }
 
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    
     
 
     

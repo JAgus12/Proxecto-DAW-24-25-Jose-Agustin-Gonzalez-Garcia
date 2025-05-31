@@ -7,6 +7,16 @@ const $d=document,
 
       $navCrearTarea=$d.querySelector("#crearTarea")
       $crearTarea=$d.querySelector(".crearTarea")
+      $h2=$d.querySelector(".crearTarea").querySelector("h2")
+      $tituloTarea=$d.querySelector(".crearTarea form").querySelector("input[name='nombre']")
+      $proyecto=$d.querySelector(".crearTarea form").querySelector("input[name='proyecto']")
+      $tiempoTarea=$d.querySelector(".crearTarea form").querySelector("input[name='tiempo']")
+      $fechaLimite=$d.querySelector(".crearTarea form").querySelector("input[name='fechalimite']")
+      $descripcionTarea=$d.querySelector(".crearTarea form").querySelector("textarea")
+      $entornoTarea=$d.querySelector(".crearTarea").querySelector("#entorno")
+      $estadoTarea=$d.querySelector(".crearTarea").querySelector("#estado")
+      $botonModificar=$d.querySelector(".crearTarea").querySelector("button")
+      $form=$d.querySelector(".crearTarea form")
 
       $navCompartidos=$d.querySelector("#compartir")
       $compartidos=$d.querySelector(".compartidos")
@@ -19,7 +29,17 @@ const $d=document,
       $salir=$d.querySelector(".derecha").querySelector("a")
       $main=$d.querySelector("main")
       $nombreUsuario=$d.querySelector(".derecha").querySelector("li")
-    
+ 
+      
+const tareas=[]
+const usuario={}
+const user=localStorage.getItem('user')
+const token = localStorage.getItem('token')
+let urlTareas="http://localhost:8080/tareas"
+let urlTareasUsuario=`http://localhost:8080/tareas/usuario`
+let urlusuarios="http://localhost:8080/usuarios"
+
+
 function ajax(options) {
     const {url,method,headers={},fExito,fError,data}=options;
 
@@ -45,8 +65,8 @@ function buscarUsuario(user,token) {
              "Authorization": `Bearer ${token}`
         },
         fExito:json=>{
-           
-           $nombreUsuario.innerHTML=`${json.nombre} ${json.apellidos}`
+           Object.assign(usuario,json)
+           $nombreUsuario.innerHTML=`${usuario.nombre} ${usuario.apellidos}`
         },
         fError:error=>{console.log(error)}
     })
@@ -59,41 +79,59 @@ function mostrarSeccion(seccion) {
 
 function renderTareas(tareas) {
     $listadoTareas.innerHTML=tareas.reduce((anterior,actual)=>anterior+`
-            <section class="tarea" data-id="">
+            <section class="tarea">
                 <p>
-                    Bugs de Sprindev
-                    <i class="fa-solid fa-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
+                    ${actual.titulo}
+                    <i class="fa-solid fa-pen" data-id="${actual.tarea_id}"></i>
+                    <i class="fa-solid fa-trash" data-id="${actual.tarea_id}"></i>
                 </p>
               
-                <p class="fecha">Created:</p>
+                <p class="fecha">Created: ${new Date(actual.fecha_alta).toLocaleDateString()}</p>
                 <p>
                     <i class="fa-solid fa-envelope"></i>
-                    Estado:
+                    Estado: ${actual.estado}
                 </p>
                 <p>
                    <i class="fa-solid fa-clock"></i>
-                    Tiempo:
+                    Tiempo: ${actual.tiempo}
                 </p>
-                <button onclick="document.getElementById('detalles').showModal()">Detalles</button>
+                <button onclick="document.getElementById('detalles').showModal()" data-id="${actual.tarea_id}">Detalles</button>
             </section>`
-        )
+        ,'')
 }
 
-function getData() {
-    Promise.all([fetch(urlProductos)])
-    .then(resps=>Promise.all(resps.map(resp=>resp.ok?resp.json():Promise.reject(resp))))
-    .then(([tar])=>{
-        
+function getTareas() {
+   ajax({
+    url:urlTareasUsuario+`/${user}`,
+    method:"GET",
+    headers:{
+        "Authorization" : `Bearer ${token}`
+    },
+    fExito:json=>{
+        //console.log(json)
+        tareas.splice(0,tareas.length,...json)
+        renderTareas(tareas)
+    },
+    fError:error=>console.log(error)
+   })
+}
+
+function deleteTarea(id) {
+    ajax({
+        url:urlTareas+`/${id}`,
+        method:"DELETE",
+        headers:{
+            "Authorization" : `Bearer ${token}`
+        },
+        fExito:json=>{
+            tareas.splice(tareas.findIndex(el=>el.tarea_id==id),1)
+            renderTareas(tareas)
+        },
+        fError:error=>console.log(error)
     })
-    .catch(errors=>console.log(errors))
 }
 
-const urlusuarios="http://localhost:8080/usuarios"
-const user=localStorage.getItem('user')
-const token = localStorage.getItem('token')
-
-
+$d.addEventListener("DOMContentLoaded",getTareas)
 
 if(!token){
     window.location.href="/login.html"
@@ -105,8 +143,7 @@ $menu.addEventListener("click",ev=>{
     $sidebar.classList.toggle('menu-toggle')
 }) 
 
-const tareas=[]
-const usuario={}
+
 //console.log($salir)
 //console.log($menu)
 //console.log($sidebar)
@@ -124,6 +161,10 @@ const usuario={}
 // console.log($listadoTareas)
 // console.log($listadoCuenta)
 // console.log($listadoCompartidos)
+//console.log($tituloTarea)
+//console.log($entornoTarea)
+//console.log($botonModificar)
+console.log($form)
 
 $salir.addEventListener("click",ev=>{
     localStorage.removeItem('token')
@@ -133,6 +174,29 @@ $salir.addEventListener("click",ev=>{
 
 buscarUsuario(user,token)
 
+$listadoTareas.addEventListener("click",ev=>{
+    ev.preventDefault()
+    let id=ev.target.dataset.id
+    if(ev.target.classList.contains('fa-pen')){
+        //console.log("modificar")
+          mostrarSeccion($crearTarea)
+          let tarea=tareas.find(el=>el.tarea_id==id)
+          console.log(tarea)
+          $tituloTarea.value=tarea.titulo
+          $proyecto.value=tarea.proyecto
+          $tiempoTarea.value=tarea.tiempo
+          $fechaLimite.value=new Date(tarea.fecha_limite).toLocaleDateString()
+          $descripcionTarea.value=tarea.descripcion
+          $entornoTarea.value=tarea.entorno.entorno_id
+          $estadoTarea.value=tarea.estado
+          $h2.innerHTML='Modificar Tarea'
+          $botonModificar.dataset.id=tarea.tarea_id
+          $botonModificar.textContent='Modificar'
+    }else{
+        deleteTarea(id)
+    }
+
+})
 
 $navmisTareas.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
@@ -144,6 +208,10 @@ $navCrearTarea.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($crearTarea)
+    $h2.innerHTML='Nueva Tarea'
+    delete $botonModificar.dataset.id
+    $botonModificar.textContent='Crear'
+    $form.reset()
 })
 
 $navCompartidos.addEventListener("click",ev=>{

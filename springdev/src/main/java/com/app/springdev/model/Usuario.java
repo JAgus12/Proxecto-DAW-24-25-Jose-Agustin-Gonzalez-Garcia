@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -53,6 +54,7 @@ public class Usuario implements UserDetails {
     private Suscripcion suscripcion;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private List<Tarea> tareas;
 
     @ManyToMany
