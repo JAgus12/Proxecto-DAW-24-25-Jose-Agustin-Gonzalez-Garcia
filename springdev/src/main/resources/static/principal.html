@@ -104,7 +104,7 @@
             <input type="text" name="nombre" placeholder="titulo">
             <input type="text" name="proyecto" placeholder="proyecto">
             <input type="text" name="tiempo" placeholder="tiempo">
-            <input type="text" name="fechalimite" placeholder="fechalimite">
+            <input type="date" name="fechalimite" placeholder="fechalimite">
             <textarea name="descripcion" id="descripcion"></textarea>
             <label for="estado">Estado:</label>
             <select name="estado" id="estado">
@@ -125,7 +125,7 @@
             </select>
             <p>
                 <button>Crear</button>
-                <button>Cancelar</button>
+                <button id="cancelar" type="button">Cancelar</button>
             </p>
         </form>
 
@@ -213,23 +213,23 @@
         <section>
             <h3>Tarea</h3>
             <i class="fa-solid fa-xmark" onclick="document.getElementById('detalles').close()"></i>
-            <p>
-                Descripción:<span>sss</span>
+            <p class="descripcion">
+                Descripción: <span></span>
             </p>
-            <p>
-                Estado:<span></span>
+            <p class="estado">
+                Estado: <span></span>
             </p>
-            <p>
-                Entorno:<span></span>
+            <p class="entorno">
+                Entorno: <span></span>
             </p>
-            <p>
-                Fecha limite:<span></span>
+            <p class="fechalimite">
+                Fecha limite: <span></span>
             </p>
-            <p>
-                Tiempo:<span></span>
+            <p class="tiempo">
+                Tiempo: <span></span>
             </p>
-            <p>
-                Proyecto:<span></span>
+            <p class="proyecto">
+                Proyecto: <span></span>
             </p>
         </section>
         <section class="buscar">
@@ -245,7 +245,6 @@
             </select>
             <button class="compartir">Compartir</button>
         </section>
-        
     </dialog>
     <dialog id="detalles-compartir">
         <section>

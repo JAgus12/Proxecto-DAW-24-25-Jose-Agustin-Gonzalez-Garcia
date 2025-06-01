@@ -15,8 +15,18 @@ const $d=document,
       $descripcionTarea=$d.querySelector(".crearTarea form").querySelector("textarea")
       $entornoTarea=$d.querySelector(".crearTarea").querySelector("#entorno")
       $estadoTarea=$d.querySelector(".crearTarea").querySelector("#estado")
-      $botonModificar=$d.querySelector(".crearTarea").querySelector("button")
+      $boton=$d.querySelector(".crearTarea").querySelector("button")
       $form=$d.querySelector(".crearTarea form")
+      $botonCancelar=$d.querySelector("#cancelar")
+
+      $dialogDescripcion=$d.querySelector("#detalles").querySelector(".descripcion").querySelector("span")
+      $dialogEstado=$d.querySelector("#detalles").querySelector(".estado").querySelector("span")
+      $dialogEntorno=$d.querySelector("#detalles").querySelector(".entorno").querySelector("span")
+      $dialogFechaLimite=$d.querySelector("#detalles").querySelector(".fechalimite").querySelector("span")
+      $dialogTiempo=$d.querySelector("#detalles").querySelector(".tiempo").querySelector("span")
+      $dialogProyecto=$d.querySelector("#detalles").querySelector(".proyecto").querySelector("span")
+      $buscarUsuario=$d.querySelector(".buscarUsuario")
+      $botonCompartir=$d.querySelector(".compartir")
 
       $navCompartidos=$d.querySelector("#compartir")
       $compartidos=$d.querySelector(".compartidos")
@@ -25,7 +35,8 @@ const $d=document,
       $navCuenta=$d.querySelector("#cuenta")
       $cuenta=$d.querySelector(".cuenta")
       $listadoCuenta=$d.querySelector(".listadoUsuario")
-      $botonCompartir=$d.querySelector(".compartir")
+      
+ 
       $salir=$d.querySelector(".derecha").querySelector("a")
       $main=$d.querySelector("main")
       $nombreUsuario=$d.querySelector(".derecha").querySelector("li")
@@ -95,9 +106,31 @@ function renderTareas(tareas) {
                    <i class="fa-solid fa-clock"></i>
                     Tiempo: ${actual.tiempo}
                 </p>
-                <button onclick="document.getElementById('detalles').showModal()" data-id="${actual.tarea_id}">Detalles</button>
+                <button  data-id="${actual.tarea_id}">Detalles</button>
             </section>`
         ,'')
+}
+
+function renderUsuario(usuario) {
+    $cuenta.innerHTML=`
+     <h2>Cuenta</h2>
+        <section>
+            <i class="fa-solid fa-circle-user"></i>
+            <p>${usuario.usuario}</p>
+        </section>
+        <section class="listadoUsuario">
+            <p>Nombre Completo</p>
+            <p>${usuario.nombre} ${usuario.apellidos}</p>
+            <p>Email</p>
+            <p>${usuario.email}</p>
+            <p>Fecha Nacimiento</p>
+            <p>${usuario.fecha_nacimiento}</p>
+            <p>Mi Suscripción</p>
+            <p>${usuario.suscripcion.tipo}</p>
+            <p>Fecha Renovación</p>
+            <p>${usuario.suscripcion.fecha_fin==null?'-----':usuario.suscripcion.fecha_fin}</p>
+            <button data-id="${usuario.usuario}">Premium</button>
+        </section>`
 }
 
 function getTareas() {
@@ -131,6 +164,43 @@ function deleteTarea(id) {
     })
 }
 
+function addTarea(tarea) {
+    ajax({
+        url:urlTareas,
+        method:"POST",
+        headers:{
+            "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+            tareas.push(json)
+            renderTareas(tareas)
+            $form.reset()
+        },
+        fError:error=>console.log(error),
+        data:tarea
+    })
+}
+
+function updateTarea(id,tarea) {
+    ajax({
+        url:urlTareas+`/${id}`,
+        method:"PUT",
+        headers:{
+             "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+            $form.reset()
+            $h2.innerHTML='Nueva Tarea'
+            delete $boton.dataset.id
+            $boton.textContent='Crear'
+            mostrarSeccion($misTareas)
+            getTareas()
+        },
+        fError:error=>console.log(error),
+        data:tarea
+    })
+}
+
 $d.addEventListener("DOMContentLoaded",getTareas)
 
 if(!token){
@@ -142,7 +212,6 @@ const secciones=[$misTareas,$crearTarea,$compartidos,$cuenta]
 $menu.addEventListener("click",ev=>{
     $sidebar.classList.toggle('menu-toggle')
 }) 
-
 
 //console.log($salir)
 //console.log($menu)
@@ -164,7 +233,9 @@ $menu.addEventListener("click",ev=>{
 //console.log($tituloTarea)
 //console.log($entornoTarea)
 //console.log($botonModificar)
-console.log($form)
+//console.log($form)
+//console.log($dialogDescripcion)
+//console.log($dialogEstado)
 
 $salir.addEventListener("click",ev=>{
     localStorage.removeItem('token')
@@ -173,6 +244,7 @@ $salir.addEventListener("click",ev=>{
 })
 
 buscarUsuario(user,token)
+console.log(usuario)
 
 $listadoTareas.addEventListener("click",ev=>{
     ev.preventDefault()
@@ -181,22 +253,44 @@ $listadoTareas.addEventListener("click",ev=>{
         //console.log("modificar")
           mostrarSeccion($crearTarea)
           let tarea=tareas.find(el=>el.tarea_id==id)
-          console.log(tarea)
+          //console.log(tarea)
           $tituloTarea.value=tarea.titulo
           $proyecto.value=tarea.proyecto
           $tiempoTarea.value=tarea.tiempo
-          $fechaLimite.value=new Date(tarea.fecha_limite).toLocaleDateString()
+          $fechaLimite.value = new Date(tarea.fecha_limite).toISOString().split('T')[0];
           $descripcionTarea.value=tarea.descripcion
           $entornoTarea.value=tarea.entorno.entorno_id
           $estadoTarea.value=tarea.estado
           $h2.innerHTML='Modificar Tarea'
-          $botonModificar.dataset.id=tarea.tarea_id
-          $botonModificar.textContent='Modificar'
-    }else{
+          $boton.dataset.id=tarea.tarea_id
+          $boton.textContent='Modificar'
+    }
+
+    if(ev.target.classList.contains('fa-trash')){
+        //console.log('borrar')
         deleteTarea(id)
     }
 
+    if(ev.target.tagName=='BUTTON'){
+        let tarea=tareas.find(el=>el.tarea_id==id)
+        //console.log(tarea)
+        document.getElementById('detalles').showModal()
+        //console.log('detalles')
+        $dialogDescripcion.textContent=tarea.descripcion
+        $dialogEntorno.textContent=tarea.entorno.nombre
+        $dialogEstado.textContent=tarea.estado
+        $dialogFechaLimite.textContent=new Date(tarea.fecha_limite).toLocaleDateString()
+        $dialogProyecto.textContent=tarea.proyecto
+        $dialogTiempo.textContent=tarea.tiempo
+
+    }
+
 })
+
+$buscarUsuario.addEventListener("click",ev=>{
+    console.log('buscar')
+})
+
 
 $navmisTareas.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
@@ -209,9 +303,59 @@ $navCrearTarea.addEventListener("click",ev=>{
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($crearTarea)
     $h2.innerHTML='Nueva Tarea'
-    delete $botonModificar.dataset.id
-    $botonModificar.textContent='Crear'
+    delete $boton.dataset.id
+    $boton.textContent='Crear'
     $form.reset()
+})
+
+$form.addEventListener("submit",ev=>{
+    ev.preventDefault()
+
+    if($boton.dataset.id){
+        let id=$boton.dataset.id
+        //console.log('modificar')
+        let tareaModificada={
+        titulo: $tituloTarea.value,
+        proyecto: $proyecto.value,
+        tiempo: $tiempoTarea.value,
+        fecha_limite: $fechaLimite.value,
+        descripcion: $descripcionTarea.value,
+        estado: $estadoTarea.value,
+        entorno: {
+            entorno_id: parseInt($entornoTarea.value)
+        },
+        usuario: {
+            usuario: localStorage.getItem('user')
+        }
+        }
+        //console.log(id)
+        updateTarea(id,tareaModificada)
+    }else{
+        let newTarea={
+        titulo: $tituloTarea.value,
+        proyecto: $proyecto.value,
+        tiempo: $tiempoTarea.value,
+        fecha_limite: $fechaLimite.value,
+        descripcion: $descripcionTarea.value,
+        estado: $estadoTarea.value,
+        entorno: {
+            entorno_id: parseInt($entornoTarea.value)
+        },
+        usuario: {
+            usuario: localStorage.getItem('user')
+        }
+    }
+    //console.log(newTarea)
+    addTarea(newTarea)
+    }
+})
+
+$botonCancelar.addEventListener("click",ev=>{
+    $form.reset()
+    $h2.innerHTML='Nueva Tarea'
+    delete $boton.dataset.id
+    $boton.textContent='Crear'
+    mostrarSeccion($misTareas)
 })
 
 $navCompartidos.addEventListener("click",ev=>{
@@ -224,4 +368,13 @@ $navCuenta.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
     mostrarSeccion($cuenta)
     document.body.style.backgroundColor="black"
+    renderUsuario(usuario)
+
+})
+
+$cuenta.addEventListener("click",ev=>{
+    ev.preventDefault()
+    if(ev.target.dataset.id){
+        console.log("premium")
+    }
 })
