@@ -20,6 +20,6 @@ Se utiliza como novedad un framwork de Java llamado Spring,se propuso este lengu
 
 ## 4- Probas
 
-Aún no se hicieron pruebas ya que se está desarrollando el back,solo se lanzó en pruebas para conectarse a la base de datos
+Se realizaron pruebas de creación de tares en crud y verificación de uso de tokens y seguridad de la aplicación
 
 [**<-Anterior**](../../README.md)
