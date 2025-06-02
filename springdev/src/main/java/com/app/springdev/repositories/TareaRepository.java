@@ -11,4 +11,6 @@ public interface TareaRepository extends CrudRepository<Tarea,Long> {
     @Query(value = "SELECT t.tarea_id,t.titulo,t.descripcion,t.entorno,t.estado,t.fecha_alta,t.fecha_limite,t.proyecto,t.tiempo,t.usuario FROM tareas t WHERE t.usuario=?1",nativeQuery = true)
     List<Tarea> findTareaUsuario(String usuario);
 
+   
+
 }

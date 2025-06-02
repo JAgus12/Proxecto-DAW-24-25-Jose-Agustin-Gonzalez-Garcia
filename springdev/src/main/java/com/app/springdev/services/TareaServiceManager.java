@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.app.springdev.dto.CompartidoDto;
 import com.app.springdev.model.Tarea;
 import com.app.springdev.model.Usuario;
 import com.app.springdev.repositories.TareaRepository;
@@ -68,6 +69,17 @@ public class TareaServiceManager implements TareaService {
     public List<Tarea> findTareaUsuario(String usuario) {
         return this.tareaRepository.findTareaUsuario(usuario);
     }
+
+    @Override
+    public CompartidoDto newCompartir(CompartidoDto newCompartir) {
+        Usuario u=this.usuarioRepository.findById(newCompartir.getUsuario()).get();
+        Tarea t=this.tareaRepository.findById(newCompartir.getTarea_id()).get();
+        u.getTareasCompartidas().add(t);
+        this.usuarioRepository.save(u);
+        return newCompartir;
+    }
+
+    
 
     
 

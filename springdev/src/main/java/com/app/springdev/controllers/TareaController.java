@@ -2,6 +2,7 @@ package com.app.springdev.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.springdev.dto.CompartidoDto;
 import com.app.springdev.model.Tarea;
+import com.app.springdev.model.Usuario;
 import com.app.springdev.services.TareaServiceManager;
 
 @RestController
@@ -47,6 +50,13 @@ public class TareaController {
     @Transactional
     public Tarea save(@RequestBody Tarea tarea){
         return this.tareaServiceManager.save(tarea);
+    }
+
+    @PostMapping("/compartir")
+    @Transactional
+    public ResponseEntity<?> compartirTarea(@RequestBody CompartidoDto compartir){
+        this.tareaServiceManager.newCompartir(compartir);
+        return ResponseEntity.ok("Tarea Compartida con " + compartir.getUsuario());
     }
 
     @DeleteMapping("/{tarea_id}")
