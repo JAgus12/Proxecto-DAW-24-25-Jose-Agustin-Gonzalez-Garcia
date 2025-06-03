@@ -13,6 +13,7 @@ public interface TareaService {
     CompartidoDto newCompartir(CompartidoDto newCompartir);
     Tarea save(Tarea tarea);
     Tarea deleteById(Long tarea_id);
+    void eliminarTareaCompartida(Long tarea_id);
     Tarea update(Long tarea_id,Tarea tarea);
     Boolean existsById(Long tarea_id);
 }

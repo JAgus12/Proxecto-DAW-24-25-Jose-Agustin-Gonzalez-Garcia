@@ -79,6 +79,11 @@ public class TareaServiceManager implements TareaService {
         return newCompartir;
     }
 
+    @Override
+    public void eliminarTareaCompartida(Long tarea_id) {
+        this.tareaRepository.eliminarTareaCompartida(tarea_id);
+    }
+
     
 
     

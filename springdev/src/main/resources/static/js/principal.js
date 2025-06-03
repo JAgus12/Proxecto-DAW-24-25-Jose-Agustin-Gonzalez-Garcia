@@ -19,6 +19,7 @@ const $d=document,
       $form=$d.querySelector(".crearTarea form")
       $botonCancelar=$d.querySelector("#cancelar")
 
+      $dialogtitulo=$d.querySelector("#detalles").querySelector("h3")
       $dialogDescripcion=$d.querySelector("#detalles").querySelector(".descripcion").querySelector("span")
       $dialogEstado=$d.querySelector("#detalles").querySelector(".estado").querySelector("span")
       $dialogEntorno=$d.querySelector("#detalles").querySelector(".entorno").querySelector("span")
@@ -27,6 +28,14 @@ const $d=document,
       $dialogProyecto=$d.querySelector("#detalles").querySelector(".proyecto").querySelector("span")
       $buscarUsuario=$d.querySelector(".buscarUsuario")
       $botonCompartir=$d.querySelector(".compartir")
+
+      $dialogCompartirtitulo=$d.querySelector("#detalles-compartir").querySelector("h3")
+      $dialogCompartirDescripcion=$d.querySelector("#detalles-compartir").querySelector(".descripcion").querySelector("span")
+      $dialogCompartirEstado=$d.querySelector("#detalles-compartir").querySelector(".estado").querySelector("span")
+      $dialogCompartirEntorno=$d.querySelector("#detalles-compartir").querySelector(".entorno").querySelector("span")
+      $dialogCompartirFechaLimite=$d.querySelector("#detalles-compartir").querySelector(".fechalimite").querySelector("span")
+      $dialogCompartirTiempo=$d.querySelector("#detalles-compartir").querySelector(".tiempo").querySelector("span")
+      $dialogCompartirProyecto=$d.querySelector("#detalles-compartir").querySelector(".proyecto").querySelector("span")
 
       $navCompartidos=$d.querySelector("#compartir")
       $compartidos=$d.querySelector(".compartidos")
@@ -43,13 +52,14 @@ const $d=document,
  
       
 const tareas=[]
+let tareasCompartidas=[]
 const usuario={}
 const user=localStorage.getItem('user')
 const token = localStorage.getItem('token')
+const suscripcion=localStorage.getItem('suscripcion')
 let urlTareas="http://localhost:8080/tareas"
 let urlTareasUsuario=`http://localhost:8080/tareas/usuario`
 let urlusuarios="http://localhost:8080/usuarios"
-
 
 function ajax(options) {
     const {url,method,headers={},fExito,fError,data}=options;
@@ -77,6 +87,11 @@ function buscarUsuario(user,token) {
         },
         fExito:json=>{
            Object.assign(usuario,json)
+           //console.log(json)
+           tareasCompartidas.splice(0,tareasCompartidas.length,...usuario.tareasCompartidas)
+           localStorage.setItem('suscripcion',json.suscripcion.tipo)
+           //console.log(tareasCompartidas)
+           
            $nombreUsuario.innerHTML=`${usuario.nombre} ${usuario.apellidos}`
         },
         fError:error=>{console.log(error)}
@@ -90,6 +105,31 @@ function mostrarSeccion(seccion) {
 
 function renderTareas(tareas) {
     $listadoTareas.innerHTML=tareas.reduce((anterior,actual)=>anterior+`
+            <section class="tarea">
+                <p>
+                    ${actual.titulo}
+                    <span>
+                        <i class="fa-solid fa-pen" data-id="${actual.tarea_id}"></i>
+                        <i class="fa-solid fa-trash" data-id="${actual.tarea_id}"></i>
+                    </span>
+                    
+                </p>
+              
+                <p class="fecha">Created: ${new Date(actual.fecha_alta).toLocaleDateString()}</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Estado: ${actual.estado}
+                </p>
+                <p>
+                   <i class="fa-solid fa-clock"></i>
+                    Tiempo: ${actual.tiempo}
+                </p>
+                <button  data-id="${actual.tarea_id}">Detalles</button>
+            </section>`,'')
+}
+
+function renderCompartidos(tareasCompartidas) {
+    $listadoCompartidos.innerHTML=tareasCompartidas.reduce((anterior,actual)=>anterior+`
             <section class="tarea">
                 <p>
                     ${actual.titulo}
@@ -107,8 +147,7 @@ function renderTareas(tareas) {
                     Tiempo: ${actual.tiempo}
                 </p>
                 <button  data-id="${actual.tarea_id}">Detalles</button>
-            </section>`
-        ,'')
+            </section>`,'')
 }
 
 function renderUsuario(usuario) {
@@ -159,6 +198,26 @@ function deleteTarea(id) {
         fExito:json=>{
             tareas.splice(tareas.findIndex(el=>el.tarea_id==id),1)
             renderTareas(tareas)
+            buscarUsuario(user,token)
+            renderCompartidos(tareasCompartidas)
+        },
+        fError:error=>console.log(error)
+    })
+}
+
+function dejardeCompartir(id) {
+      ajax({
+        url:urlTareas+`/compartir/${id}`,
+        method:"DELETE",
+        headers:{
+            "Authorization" : `Bearer ${token}`
+        },
+        fExito:json=>{
+            console.log('hola')
+            renderTareas(tareas)
+            buscarUsuario(user,token)
+            console.log(usuario)
+            renderCompartidos(tareasCompartidas)
         },
         fError:error=>console.log(error)
     })
@@ -193,8 +252,9 @@ function updateTarea(id,tarea) {
             $h2.innerHTML='Nueva Tarea'
             delete $boton.dataset.id
             $boton.textContent='Crear'
-            mostrarSeccion($misTareas)
             getTareas()
+            buscarUsuario(user,token)
+            renderCompartidos(tareasCompartidas)
         },
         fError:error=>console.log(error),
         data:tarea
@@ -246,6 +306,7 @@ $salir.addEventListener("click",ev=>{
 buscarUsuario(user,token)
 console.log(usuario)
 
+
 $listadoTareas.addEventListener("click",ev=>{
     ev.preventDefault()
     let id=ev.target.dataset.id
@@ -276,6 +337,7 @@ $listadoTareas.addEventListener("click",ev=>{
         //console.log(tarea)
         document.getElementById('detalles').showModal()
         //console.log('detalles')
+        $dialogtitulo.textContent=tarea.titulo
         $dialogDescripcion.textContent=tarea.descripcion
         $dialogEntorno.textContent=tarea.entorno.nombre
         $dialogEstado.textContent=tarea.estado
@@ -286,6 +348,50 @@ $listadoTareas.addEventListener("click",ev=>{
     }
 
 })
+
+$listadoCompartidos.addEventListener("click",ev=>{
+    ev.preventDefault()
+    let id=ev.target.dataset.id
+    if(ev.target.classList.contains('fa-pen')){
+        //console.log("modificar")
+          mostrarSeccion($crearTarea)
+          let tarea=tareasCompartidas.find(el=>el.tarea_id==id)
+          //console.log(tarea)
+          $tituloTarea.value=tarea.titulo
+          $proyecto.value=tarea.proyecto
+          $tiempoTarea.value=tarea.tiempo
+          $fechaLimite.value = new Date(tarea.fecha_limite).toISOString().split('T')[0];
+          $descripcionTarea.value=tarea.descripcion
+          $entornoTarea.value=tarea.entorno.entorno_id
+          $estadoTarea.value=tarea.estado
+          $h2.innerHTML='Modificar Tarea'
+          $boton.dataset.id=tarea.tarea_id
+          $boton.textContent='Modificar'
+    }
+
+    if(ev.target.classList.contains('fa-trash')){
+        //console.log('borrar')
+        dejardeCompartir(id)
+    }
+
+    if(ev.target.tagName=='BUTTON'){
+        let tarea=tareasCompartidas.find(el=>el.tarea_id==id)
+        //console.log(tarea)
+        document.getElementById('detalles-compartir').showModal()
+        //console.log('detalles')
+        $dialogCompartirtitulo.textContent=tarea.titulo
+        $dialogCompartirDescripcion.textContent=tarea.descripcion
+        $dialogCompartirEntorno.textContent=tarea.entorno.nombre
+        $dialogCompartirEstado.textContent=tarea.estado
+        $dialogCompartirFechaLimite.textContent=new Date(tarea.fecha_limite).toLocaleDateString()
+        $dialogCompartirProyecto.textContent=tarea.proyecto
+        $dialogCompartirTiempo.textContent=tarea.tiempo
+
+    }
+
+})
+
+
 
 $buscarUsuario.addEventListener("click",ev=>{
     console.log('buscar')
@@ -330,6 +436,7 @@ $form.addEventListener("submit",ev=>{
         }
         //console.log(id)
         updateTarea(id,tareaModificada)
+        mostrarSeccion($misTareas)
     }else{
         let newTarea={
         titulo: $tituloTarea.value,
@@ -345,8 +452,17 @@ $form.addEventListener("submit",ev=>{
             usuario: localStorage.getItem('user')
         }
     }
+
+    if(suscripcion=='GRATIS'){
+        if(tareas.length==2){
+            alert('has alcanzado el limite')
+        }else{
+            addTarea(newTarea)
+        }
+    }else{
+        addTarea(newTarea)
+    }
     //console.log(newTarea)
-    addTarea(newTarea)
     }
 })
 
@@ -358,10 +474,23 @@ $botonCancelar.addEventListener("click",ev=>{
     mostrarSeccion($misTareas)
 })
 
+
+
 $navCompartidos.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($compartidos)
+    renderCompartidos(tareasCompartidas)
+})
+
+
+$botonCompartir.addEventListener("click",ev=>{
+    console.log('click')
+    if(suscripcion!='GRATIS'){
+
+    }else{
+        alert('Prueba premium')
+    }
 })
 
 $navCuenta.addEventListener("click",ev=>{

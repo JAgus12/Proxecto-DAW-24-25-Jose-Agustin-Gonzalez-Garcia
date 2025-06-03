@@ -1,6 +1,7 @@
 package com.app.springdev.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.springdev.dto.CompartidoDto;
 import com.app.springdev.model.Tarea;
-import com.app.springdev.model.Usuario;
 import com.app.springdev.services.TareaServiceManager;
 
 @RestController
@@ -63,6 +63,13 @@ public class TareaController {
     @Transactional
     public Tarea deleteTarea(@PathVariable Long tarea_id){
         return this.tareaServiceManager.deleteById(tarea_id);
+    }
+
+    @DeleteMapping("/compartir/{tarea_id}")
+    @Transactional
+    public ResponseEntity<?> deleteTareaCompartir(@PathVariable Long tarea_id){
+        this.tareaServiceManager.eliminarTareaCompartida(tarea_id);
+        return ResponseEntity.ok(Map.of("mensaje", "Ya no esta compartido"));
     }
 
     @PutMapping("/{tarea_id}")
