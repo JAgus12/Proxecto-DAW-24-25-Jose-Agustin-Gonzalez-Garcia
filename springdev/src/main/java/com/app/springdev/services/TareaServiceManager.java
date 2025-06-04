@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.app.springdev.dto.CompartidoDto;
+import com.app.springdev.model.Entorno;
 import com.app.springdev.model.Tarea;
 import com.app.springdev.model.Usuario;
+import com.app.springdev.repositories.EntornoRepository;
 import com.app.springdev.repositories.TareaRepository;
 import com.app.springdev.repositories.UsuarioRepository;
 
@@ -15,11 +17,14 @@ public class TareaServiceManager implements TareaService {
 
     private final TareaRepository tareaRepository;
     private final UsuarioRepository usuarioRepository;
+    private final EntornoRepository entornoRepository;
 
     
-    public TareaServiceManager(TareaRepository tareaRepository, UsuarioRepository usuarioRepository) {
+    public TareaServiceManager(TareaRepository tareaRepository, UsuarioRepository usuarioRepository,
+            EntornoRepository entornoRepository) {
         this.tareaRepository = tareaRepository;
         this.usuarioRepository = usuarioRepository;
+        this.entornoRepository = entornoRepository;
     }
 
     @Override
@@ -47,7 +52,9 @@ public class TareaServiceManager implements TareaService {
     @Override
     public Tarea save(Tarea tarea) {
         Usuario usuario=this.usuarioRepository.findById(tarea.getUsuario().getUsuario()).get();
+        Entorno entorno=this.entornoRepository.findById(tarea.getEntorno().getEntorno_id()).get();
         tarea.setUsuario(usuario);
+        tarea.setEntorno(entorno);
         return this.tareaRepository.save(tarea);
     }
 

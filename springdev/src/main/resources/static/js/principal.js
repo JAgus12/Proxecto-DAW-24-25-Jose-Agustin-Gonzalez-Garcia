@@ -18,6 +18,7 @@ const $d=document,
       $boton=$d.querySelector(".crearTarea").querySelector("button")
       $form=$d.querySelector(".crearTarea form")
       $botonCancelar=$d.querySelector("#cancelar")
+    
 
       $dialogtitulo=$d.querySelector("#detalles").querySelector("h3")
       $dialogDescripcion=$d.querySelector("#detalles").querySelector(".descripcion").querySelector("span")
@@ -28,6 +29,8 @@ const $d=document,
       $dialogProyecto=$d.querySelector("#detalles").querySelector(".proyecto").querySelector("span")
       $buscarUsuario=$d.querySelector(".buscarUsuario")
       $botonCompartir=$d.querySelector(".compartir")
+      $usuarioBuscar=$d.querySelector(".buscar").querySelector("input[name='usuario']")
+      $usuariosSelect=$d.querySelector("#usuarios")
 
       $dialogCompartirtitulo=$d.querySelector("#detalles-compartir").querySelector("h3")
       $dialogCompartirDescripcion=$d.querySelector("#detalles-compartir").querySelector(".descripcion").querySelector("span")
@@ -213,7 +216,7 @@ function dejardeCompartir(id) {
             "Authorization" : `Bearer ${token}`
         },
         fExito:json=>{
-            console.log('hola')
+            tareasCompartidas.splice(tareasCompartidas.findIndex(el=>el.tarea_id==id),1)
             renderTareas(tareas)
             buscarUsuario(user,token)
             console.log(usuario)
@@ -296,6 +299,8 @@ $menu.addEventListener("click",ev=>{
 //console.log($form)
 //console.log($dialogDescripcion)
 //console.log($dialogEstado)
+//console.log($usuarioBuscar)
+//console.log($usuariosSelect)
 
 $salir.addEventListener("click",ev=>{
     localStorage.removeItem('token')
@@ -304,7 +309,7 @@ $salir.addEventListener("click",ev=>{
 })
 
 buscarUsuario(user,token)
-console.log(usuario)
+//console.log(usuario)
 
 
 $listadoTareas.addEventListener("click",ev=>{
@@ -344,7 +349,7 @@ $listadoTareas.addEventListener("click",ev=>{
         $dialogFechaLimite.textContent=new Date(tarea.fecha_limite).toLocaleDateString()
         $dialogProyecto.textContent=tarea.proyecto
         $dialogTiempo.textContent=tarea.tiempo
-
+        $botonCompartir.dataset.id=id
     }
 
 })
@@ -392,11 +397,58 @@ $listadoCompartidos.addEventListener("click",ev=>{
 })
 
 
-
 $buscarUsuario.addEventListener("click",ev=>{
-    console.log('buscar')
+    let usuario=$usuarioBuscar.value
+    //console.log('buscar')
+    ajax({
+        url:urlusuarios+`/${usuario}`,
+        method:"GET",
+        headers:{
+            "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+                
+            $usuariosSelect.innerHTML=`<option value="${json.usuario}">${json.usuario}</option>`
+     
+        },
+        fError:error=>{
+           $usuariosSelect.innerHTML=`<option value="">No existe ese usuario</option>`
+        }
+    })
 })
 
+$botonCompartir.addEventListener("click",ev=>{
+    //console.log('click')
+    // if(suscripcion!='GRATIS'){
+
+    // }else{
+    //     alert('Prueba premium')
+    // }
+    let id=ev.target.dataset.id
+    let usuario=$usuariosSelect.value
+
+    console.log(id)
+    console.log(usuario)
+
+    ajax({
+        url:urlTareas+`/compartir`,
+        method:"POST",
+        headers:{
+            "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+            buscarUsuario(user,token)
+            renderCompartidos(tareasCompartidas)
+        },
+        fError:error=>{
+            console.log(error)
+        },
+        data:{
+            "tarea_id":id,
+            "usuario":usuario
+        }
+    })
+})
 
 $navmisTareas.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
@@ -450,8 +502,9 @@ $form.addEventListener("submit",ev=>{
         },
         usuario: {
             usuario: localStorage.getItem('user')
-        }
+        } 
     }
+    //console.log(newTarea)
 
     if(suscripcion=='GRATIS'){
         if(tareas.length==2){
@@ -484,14 +537,7 @@ $navCompartidos.addEventListener("click",ev=>{
 })
 
 
-$botonCompartir.addEventListener("click",ev=>{
-    console.log('click')
-    if(suscripcion!='GRATIS'){
 
-    }else{
-        alert('Prueba premium')
-    }
-})
 
 $navCuenta.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
