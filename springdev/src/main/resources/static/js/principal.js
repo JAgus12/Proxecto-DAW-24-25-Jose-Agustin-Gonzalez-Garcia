@@ -110,7 +110,7 @@ function renderTareas(tareas) {
     $listadoTareas.innerHTML=tareas.reduce((anterior,actual)=>anterior+`
             <section class="tarea">
                 <p>
-                    ${actual.titulo}
+                    <span>${actual.titulo}</span>
                     <span>
                         <i class="fa-solid fa-pen" data-id="${actual.tarea_id}"></i>
                         <i class="fa-solid fa-trash" data-id="${actual.tarea_id}"></i>
