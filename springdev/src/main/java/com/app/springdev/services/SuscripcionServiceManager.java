@@ -1,5 +1,9 @@
 package com.app.springdev.services;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -47,8 +51,10 @@ public class SuscripcionServiceManager implements SuscripcionService {
     @Override
     public Suscripcion update(Long suscripcion_id, Suscripcion suscripcion) {
         Suscripcion suscripcionModificar=this.suscripcionRepository.findById(suscripcion_id).get();
-        suscripcionModificar.setFecha_alta(suscripcion.getFecha_alta());
-        suscripcionModificar.setFecha_fin(suscripcion.getFecha_fin());
+        suscripcionModificar.setFecha_alta(new Timestamp(System.currentTimeMillis()));
+        LocalDateTime fecha=suscripcionModificar.getFecha_alta().toLocalDateTime().plusMonths(1);
+        Timestamp fechaFin=Timestamp.valueOf(fecha);
+        suscripcionModificar.setFecha_fin(fechaFin);
         suscripcionModificar.setTipo(suscripcion.getTipo());
         this.suscripcionRepository.save(suscripcionModificar);
         return suscripcionModificar;

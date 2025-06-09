@@ -63,6 +63,7 @@ const suscripcion=localStorage.getItem('suscripcion')
 let urlTareas="http://localhost:8080/tareas"
 let urlTareasUsuario=`http://localhost:8080/tareas/usuario`
 let urlusuarios="http://localhost:8080/usuarios"
+let urlsuscripciones="http://localhost:8080/suscripciones"
 
 function ajax(options) {
     const {url,method,headers={},fExito,fError,data}=options;
@@ -170,8 +171,8 @@ function renderUsuario(usuario) {
             <p>Mi Suscripción</p>
             <p>${usuario.suscripcion.tipo}</p>
             <p>Fecha Renovación</p>
-            <p>${usuario.suscripcion.fecha_fin==null?'-----':usuario.suscripcion.fecha_fin}</p>
-            <button data-id="${usuario.usuario}">Premium</button>
+            <p>${usuario.suscripcion.tipo==='GRATIS'?'-----':new Date(usuario.suscripcion.fecha_fin).toLocaleDateString()}</p>
+            <button data-id="${usuario.suscripcion.suscripcion_id}">${usuario.suscripcion.tipo=='PREMIUM'?'Ya eres Premium':'Hacerse Premium'}</button>
         </section>`
 }
 
@@ -264,9 +265,31 @@ function updateTarea(id,tarea) {
     })
 }
 
+function hacersePremium(id,suscripcion) {
+    ajax({
+        url:urlsuscripciones+`/${id}`,
+        method:"PUT",
+        headers:{
+            "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+            console.log('error')
+            localStorage.setItem('suscripcion',json.tipo)
+            buscarUsuario(user,token)
+            renderUsuario(usuario)
+            window.location.reload()
+        },
+        fError:error=>{
+            console.log(error)
+        },
+        data:suscripcion
+    })
+}
+
+
 $d.addEventListener("DOMContentLoaded",getTareas)
 
-if(!token){
+if(!token && !user){
     window.location.href="/login.html"
 }
      
@@ -417,38 +440,8 @@ $buscarUsuario.addEventListener("click",ev=>{
     })
 })
 
-$botonCompartir.addEventListener("click",ev=>{
-    //console.log('click')
-    // if(suscripcion!='GRATIS'){
 
-    // }else{
-    //     alert('Prueba premium')
-    // }
-    let id=ev.target.dataset.id
-    let usuario=$usuariosSelect.value
 
-    console.log(id)
-    console.log(usuario)
-
-    ajax({
-        url:urlTareas+`/compartir`,
-        method:"POST",
-        headers:{
-            "Authorization": `Bearer ${token}`
-        },
-        fExito:json=>{
-            buscarUsuario(user,token)
-            renderCompartidos(tareasCompartidas)
-        },
-        fError:error=>{
-            console.log(error)
-        },
-        data:{
-            "tarea_id":id,
-            "usuario":usuario
-        }
-    })
-})
 
 $navmisTareas.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
@@ -536,8 +529,55 @@ $navCompartidos.addEventListener("click",ev=>{
     renderCompartidos(tareasCompartidas)
 })
 
+//console.log(usuario)
 
 
+  $botonCompartir.addEventListener("click",ev=>{
+
+    if(suscripcion!='GRATIS'){
+    let id=ev.target.dataset.id
+    let usuario=$usuariosSelect.value
+
+    //console.log(id)
+    //console.log(usuario)
+
+    ajax({
+        url:urlTareas+`/compartir`,
+        method:"POST",
+        headers:{
+            "Authorization": `Bearer ${token}`
+        },
+        fExito:json=>{
+            buscarUsuario(user,token)
+            renderCompartidos(tareasCompartidas)
+        },
+        fError:error=>{
+            console.log(error)
+        },
+        data:{
+            "tarea_id":id,
+            "usuario":usuario
+        }
+    })
+    }else{
+
+        alert('opcion Premium')
+    }
+   
+})
+
+
+ $cuenta.addEventListener("click",ev=>{
+    ev.preventDefault()
+    if(ev.target.dataset.id){
+        let id=ev.target.dataset.id
+        console.log("premium")
+        let suscripcion={
+            tipo:"PREMIUM"
+        }
+        hacersePremium(id,suscripcion)
+    }
+}) 
 
 $navCuenta.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
@@ -547,9 +587,3 @@ $navCuenta.addEventListener("click",ev=>{
 
 })
 
-$cuenta.addEventListener("click",ev=>{
-    ev.preventDefault()
-    if(ev.target.dataset.id){
-        console.log("premium")
-    }
-})
