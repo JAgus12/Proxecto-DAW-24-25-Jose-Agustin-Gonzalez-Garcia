@@ -91,6 +91,12 @@ public class TareaServiceManager implements TareaService {
         this.tareaRepository.eliminarTareaCompartida(tarea_id);
     }
 
+    @Override
+    public String UsuarioPropietario(Long tarea_id) {
+        return this.tareaRepository.UsuarioPropietario(tarea_id);
+    }
+
+    
     
 
     

@@ -46,6 +46,13 @@ public class TareaController {
         return this.tareaServiceManager.findById(tarea_id);
     }
 
+    @GetMapping("/tareaUsuarioPropietario/{tarea_id}")
+    @Transactional(readOnly = true)
+    public ResponseEntity<?> UsuarioPropietario(@PathVariable Long tarea_id){
+        String usuario=this.tareaServiceManager.UsuarioPropietario(tarea_id);
+        return ResponseEntity.ok(Map.of("usuario",usuario));
+    }
+
     @PostMapping()
     @Transactional
     public Tarea save(@RequestBody Tarea tarea){

@@ -10,6 +10,118 @@ img{
 }
 
 body{
+    width: 100vw;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 15px;
+    background-color: black;
     font-family: "Playfair Display",serif;
-    background-color: rgb(245, 245, 245);
+    height: 100vh;
 }
+
+
+/*=============================================
+=            estilos header            =
+=============================================*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+    background-color: black;
+    width: 100%;
+}
+
+header figure{
+    width: 150px;
+}
+
+/*=====  End of estilos header  ======*/
+
+
+
+
+/*=============================================
+=            estilos main            =
+=============================================*/
+
+main{
+    background-image: url(../assets/login.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registro{
+    margin-left: 50%;
+    background-color: black;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.registro label{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.registro input{
+    font-size: 20px;
+    border-radius: 10px;
+}
+input[type=date]{
+    width: 240px;
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #7E49F3;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+    color: #854ADA;
+    background-color: #FDFDFD;
+}
+/*=====  End of estilos main  ======*/
+
+
+
+
+
+/*=============================================
+=            estilos footer            =
+=============================================*/
+
+footer{
+    background-color: black;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+footer p{
+    color: white;
+    font-size: 20px;
+}
+
+/*=====  End of estilos footer  ======*/

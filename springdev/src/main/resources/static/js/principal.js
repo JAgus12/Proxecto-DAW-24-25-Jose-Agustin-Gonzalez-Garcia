@@ -4,6 +4,9 @@ const $d=document,
       $navmisTareas=$d.querySelector("#tareas")
       $misTareas=$d.querySelector(".tareas")
       $listadoTareas=$d.querySelector(".listado")
+      $filtroEstado=$d.querySelector("#estado")
+      $filtroProyecto=$d.querySelector("#proyecto")
+      $botonBuscar=$d.querySelector(".tareas").querySelector("form").querySelector("button")
 
       $navCrearTarea=$d.querySelector("#crearTarea")
       $crearTarea=$d.querySelector(".crearTarea")
@@ -39,6 +42,7 @@ const $d=document,
       $dialogCompartirFechaLimite=$d.querySelector("#detalles-compartir").querySelector(".fechalimite").querySelector("span")
       $dialogCompartirTiempo=$d.querySelector("#detalles-compartir").querySelector(".tiempo").querySelector("span")
       $dialogCompartirProyecto=$d.querySelector("#detalles-compartir").querySelector(".proyecto").querySelector("span")
+      $dialogCompartirUsuario=$d.querySelector("#detalles-compartir").querySelector(".usuarios").querySelector("span")
 
       $navCompartidos=$d.querySelector("#compartir")
       $compartidos=$d.querySelector(".compartidos")
@@ -64,6 +68,7 @@ let urlTareas="http://localhost:8080/tareas"
 let urlTareasUsuario=`http://localhost:8080/tareas/usuario`
 let urlusuarios="http://localhost:8080/usuarios"
 let urlsuscripciones="http://localhost:8080/suscripciones"
+//console.log(suscripcion)
 
 function ajax(options) {
     const {url,method,headers={},fExito,fError,data}=options;
@@ -134,11 +139,14 @@ function renderTareas(tareas) {
 
 function renderCompartidos(tareasCompartidas) {
     $listadoCompartidos.innerHTML=tareasCompartidas.reduce((anterior,actual)=>anterior+`
-            <section class="tarea">
+          <section class="tarea">
                 <p>
-                    ${actual.titulo}
-                    <i class="fa-solid fa-pen" data-id="${actual.tarea_id}"></i>
-                    <i class="fa-solid fa-trash" data-id="${actual.tarea_id}"></i>
+                    <span>${actual.titulo}</span>
+                    <span>
+                        <i class="fa-solid fa-pen" data-id="${actual.tarea_id}"></i>
+                        <i class="fa-solid fa-trash" data-id="${actual.tarea_id}"></i>
+                    </span>
+                    
                 </p>
               
                 <p class="fecha">Created: ${new Date(actual.fecha_alta).toLocaleDateString()}</p>
@@ -324,10 +332,15 @@ $menu.addEventListener("click",ev=>{
 //console.log($dialogEstado)
 //console.log($usuarioBuscar)
 //console.log($usuariosSelect)
+//console.log($dialogCompartirUsuario)
+//console.log($filtroEstado)
+//console.log($filtroProyecto)
+//console.log($botonBuscar)
 
 $salir.addEventListener("click",ev=>{
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    localStorage.removeItem('suscripcion')
     window.location.href="/login.html"
 })
 
@@ -415,6 +428,21 @@ $listadoCompartidos.addEventListener("click",ev=>{
         $dialogCompartirProyecto.textContent=tarea.proyecto
         $dialogCompartirTiempo.textContent=tarea.tiempo
 
+        ajax({
+            url:urlTareas+`/tareaUsuarioPropietario/${tarea.tarea_id}`,
+            method:"GET",
+            headers:{
+                "Authorization" : `Bearer ${token}`
+            },
+            fExito:json=>{
+                $dialogCompartirUsuario.textContent=json.usuario
+            },
+            fError:error=>{
+                console.log('erros buscando propietario')
+            }
+        })
+        
+
     }
 
 })
@@ -500,9 +528,12 @@ $form.addEventListener("submit",ev=>{
     //console.log(newTarea)
 
     if(suscripcion=='GRATIS'){
+        //console.log('entro')
+        //console.log(tareas.length)
         if(tareas.length==2){
             alert('has alcanzado el limite')
         }else{
+            //console.log('entro')
             addTarea(newTarea)
         }
     }else{
@@ -532,12 +563,12 @@ $navCompartidos.addEventListener("click",ev=>{
 //console.log(usuario)
 
 
-  $botonCompartir.addEventListener("click",ev=>{
+$botonCompartir.addEventListener("click",ev=>{
 
-    if(suscripcion!='GRATIS'){
+    if(suscripcion==='PREMIUM'){
     let id=ev.target.dataset.id
     let usuario=$usuariosSelect.value
-
+    console.log('eres premium')
     //console.log(id)
     //console.log(usuario)
 
@@ -560,7 +591,6 @@ $navCompartidos.addEventListener("click",ev=>{
         }
     })
     }else{
-
         alert('opcion Premium')
     }
    
@@ -570,12 +600,15 @@ $navCompartidos.addEventListener("click",ev=>{
  $cuenta.addEventListener("click",ev=>{
     ev.preventDefault()
     if(ev.target.dataset.id){
-        let id=ev.target.dataset.id
-        console.log("premium")
-        let suscripcion={
-            tipo:"PREMIUM"
+        if(suscripcion=='GRATIS'){
+            let id=ev.target.dataset.id
+            //console.log("premium")
+            let suscripcion={
+                tipo:"PREMIUM"
+            }
+            hacersePremium(id,suscripcion)
         }
-        hacersePremium(id,suscripcion)
+       
     }
 }) 
 

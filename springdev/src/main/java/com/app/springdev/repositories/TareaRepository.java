@@ -18,4 +18,7 @@ public interface TareaRepository extends CrudRepository<Tarea,Long> {
     @Query(value = "DELETE FROM tareas_compartidas WHERE tarea_id=?1",nativeQuery = true)
     void eliminarTareaCompartida(Long tarea_id);
 
+    @Query(value = "SELECT u.usuario FROM usuarios u,tareas t WHERE u.usuario=t.usuario AND t.tarea_id=?1",nativeQuery = true)
+    String UsuarioPropietario(Long tarea_id);
+
 }

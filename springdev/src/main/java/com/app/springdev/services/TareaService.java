@@ -16,4 +16,5 @@ public interface TareaService {
     void eliminarTareaCompartida(Long tarea_id);
     Tarea update(Long tarea_id,Tarea tarea);
     Boolean existsById(Long tarea_id);
+    String UsuarioPropietario(Long tarea_id);
 }
