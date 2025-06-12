@@ -16,7 +16,7 @@ body{
     font-size: 15px;
     background-color: black;
     font-family: "Playfair Display",serif;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -78,7 +78,7 @@ main{
     border-radius: 10px;
 }
 input[type=date]{
-    width: 240px;
+    width: 250px;
     text-align: center;
 }
 form{
@@ -125,3 +125,18 @@ footer p{
 }
 
 /*=====  End of estilos footer  ======*/
+
+/*=============================================
+=            media queries            =
+=============================================*/
+
+@media (max-width:480px){
+    .registro{
+        margin: 0;
+    }
+}
+
+/*=====  End of media queries  ======*/
+
+
+

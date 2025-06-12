@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 </style>
 <script src="./js/principal.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -73,7 +74,7 @@
                 </select>
                 <label for="proyecto">Proyecto:</label>
                 <select name="proyecto" id="proyecto">
-                    <option value="">Sprindev</option>
+                    <!-- <option value="">Seleccione Proyecto</option>   -->
                 </select>
             </p>
             <p>
@@ -107,7 +108,7 @@
             <input type="text" name="nombre" placeholder="titulo">
             <input type="text" name="proyecto" placeholder="proyecto">
             <input type="text" name="tiempo" placeholder="tiempo">
-            <input type="date" name="fechalimite" placeholder="fechalimite">
+            <input type="date" name="fechalimite">
             <textarea name="descripcion" id="descripcion" placeholder="descripcion"></textarea>
             <label for="estado">Estado:</label>
             <select name="estado" id="estado">

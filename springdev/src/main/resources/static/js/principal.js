@@ -7,6 +7,7 @@ const $d=document,
       $filtroEstado=$d.querySelector("#estado")
       $filtroProyecto=$d.querySelector("#proyecto")
       $botonBuscar=$d.querySelector(".tareas").querySelector("form").querySelector("button")
+      $listadoProyectos=$d.querySelector("#proyecto")
 
       $navCrearTarea=$d.querySelector("#crearTarea")
       $crearTarea=$d.querySelector(".crearTarea")
@@ -195,6 +196,7 @@ function getTareas() {
         //console.log(json)
         tareas.splice(0,tareas.length,...json)
         renderTareas(tareas)
+        renderProyectos(tareas)
     },
     fError:error=>console.log(error)
    })
@@ -294,6 +296,15 @@ function hacersePremium(id,suscripcion) {
     })
 }
 
+function renderProyectos(tareas) {
+    let proyectos=new Set()
+    tareas.forEach(el=>proyectos.add(el.proyecto))
+    //console.log(proyectos)
+    $listadoProyectos.innerHTML=`
+    <option value="">Seleccione Proyecto</option>
+    ${[...proyectos].map(el=>`<option value="${el}">${el}</option>`).join('')}`
+}
+
 
 $d.addEventListener("DOMContentLoaded",getTareas)
 
@@ -390,6 +401,17 @@ $listadoTareas.addEventListener("click",ev=>{
 
 })
 
+$botonBuscar.addEventListener("click",ev=>{
+    ev.preventDefault()
+    let estado=$filtroEstado.value
+    let proyecto=$filtroProyecto.value
+    let tareasFiltradas=tareas.filter(el=>el.estado==estado || el.proyecto==proyecto)
+    //console.log(tareasFiltradas)
+    renderTareas(tareasFiltradas)
+    //console.log(estado,proyecto)
+
+})
+
 $listadoCompartidos.addEventListener("click",ev=>{
     ev.preventDefault()
     let id=ev.target.dataset.id
@@ -475,6 +497,8 @@ $navmisTareas.addEventListener("click",ev=>{
     $sidebar.classList.remove("menu-toggle")
     document.body.style.backgroundColor=" rgb(245, 245, 245)"
     mostrarSeccion($misTareas)
+    renderTareas(tareas)
+    renderProyectos(tareas)
 })
 
 $navCrearTarea.addEventListener("click",ev=>{
@@ -531,7 +555,12 @@ $form.addEventListener("submit",ev=>{
         //console.log('entro')
         //console.log(tareas.length)
         if(tareas.length==2){
-            alert('has alcanzado el limite')
+             Swal.fire({
+                    icon: "warning",
+                    title: "Opción Premium",
+                    text: "Llegaste al límite de Tareas",
+                    scrollbarPadding: false
+                });
         }else{
             //console.log('entro')
             addTarea(newTarea)
@@ -568,7 +597,7 @@ $botonCompartir.addEventListener("click",ev=>{
     if(suscripcion==='PREMIUM'){
     let id=ev.target.dataset.id
     let usuario=$usuariosSelect.value
-    console.log('eres premium')
+    //console.log('eres premium')
     //console.log(id)
     //console.log(usuario)
 
@@ -591,7 +620,13 @@ $botonCompartir.addEventListener("click",ev=>{
         }
     })
     }else{
-        alert('opcion Premium')
+        document.getElementById('detalles').close()
+        Swal.fire({
+                    icon: "warning",
+                    title: "Opción Premium",
+                    text: "No puedes compartir tareas",
+                    scrollbarPadding: false
+                });
     }
    
 })
