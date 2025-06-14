@@ -5,6 +5,8 @@
 
 ## 1- Incidencias
 
+No hubo incidencias a destacar
+
 ## 2- Tarefas
 
 [**<-Anterior**](../../README.md)

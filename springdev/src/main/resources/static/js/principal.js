@@ -551,7 +551,7 @@ $form.addEventListener("submit",ev=>{
     }
     //console.log(newTarea)
 
-    if(suscripcion=='GRATIS'){
+    if(localStorage.getItem('suscripcion')=='GRATIS'){
         //console.log('entro')
         //console.log(tareas.length)
         if(tareas.length==2){
@@ -594,7 +594,7 @@ $navCompartidos.addEventListener("click",ev=>{
 
 $botonCompartir.addEventListener("click",ev=>{
 
-    if(suscripcion==='PREMIUM'){
+    if(localStorage.getItem('suscripcion')==='PREMIUM'){
     let id=ev.target.dataset.id
     let usuario=$usuariosSelect.value
     //console.log('eres premium')
@@ -610,6 +610,7 @@ $botonCompartir.addEventListener("click",ev=>{
         fExito:json=>{
             buscarUsuario(user,token)
             renderCompartidos(tareasCompartidas)
+           
         },
         fError:error=>{
             console.log(error)
@@ -619,6 +620,12 @@ $botonCompartir.addEventListener("click",ev=>{
             "usuario":usuario
         }
     })
+    document.getElementById('detalles').close()
+     Swal.fire({
+                    icon: "success",
+                    title: "Tarea Compartida",
+                    scrollbarPadding: false
+                });
     }else{
         document.getElementById('detalles').close()
         Swal.fire({
@@ -635,7 +642,7 @@ $botonCompartir.addEventListener("click",ev=>{
  $cuenta.addEventListener("click",ev=>{
     ev.preventDefault()
     if(ev.target.dataset.id){
-        if(suscripcion=='GRATIS'){
+        if(localStorage.getItem('suscripcion')=='GRATIS'){
             let id=ev.target.dataset.id
             //console.log("premium")
             let suscripcion={

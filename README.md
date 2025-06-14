@@ -13,40 +13,37 @@
   - [Guía de contribución](#guía-de-contribución)
   - [Links](#links)
 
-> *EXPLICACIÓN*: Este documento será a "*páxina de aterrizaxe*" do teu proxecto. Será ou primeiro que vexan vos que se interesen por el. Cúida a sua redacción con todo ou mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN*" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción
- deste ficheiro con imaxes ou gifs, pero non abuses deles.
 
 ## Taboleiro do proyecto
 
-> *EXPLICACIÓN:* neste punto indica se o proyecto está en fase de desenrolo ou finalizado.
+Actualmente el proyecto esta finalizado a parte de que en el futuro puede recibir mejoras
 
 ## Descrición
 
-> *EXPLICACIÓN*: Realiza unha breve descrición do proxecto. Non menos de 100 palabras e non máis de 300. Resalta o fundamental *coas túas propias palabras**. Utiliza unha linguaxe correcta, *pero natural**, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
-> Descrición básica das ferramentas/tecnoloxías/linguaxes de programación,... empregados.
+El proyecto trata sobre un administrador de tareas hecho especialmente para desarrolladores de software donde cada usuario podrá crear y organizar sus tareas indicando en que entorno está esa tarea y a que proyecto pertenece,dar sus fechas límite y filtrar tareas según el proyecto y estado.También podrá compartir sus tareas con compañeros para una mayor eficiencia y hacer modificaciones entre ellos.
+El objetivo de esto es dar a los desarrolladores una mayor organización para sus trabajos diaros en el área de programación.
+Se ha usado para este desarrollo las siguientes tecnologías:
+Para el backend Java con el framework Spring Boot,se ha usado para la autentificación de usuarios JWT y para el frontend JavaScript con Html y CSS y la base de datos MySQL.
 
 ## Instalación / Posta en marcha
 
-> *EXPLICACIÓN*: Neste apartado describe con toda precisión e a poder ser coa maior simplicidade/facilidade posible, como poñer en marcha a túa aplicación para probala (nun ambiente local). Valorarase moi positivamente que este proceso sexa o máis fácil posible, cunha simple instrución (p. e. un script de instalación, descarga e posta en marcha dun contedor,...).
->
+Para ponerlo en marcha necesitaremos instalar MySQL server https://dev.mysql.com/downloads/installer/ para tener funcionando una base de datos y workbench para gestionarla,para tener el código en funcionamiento necesitaremos un IDE como visual Studio,bajar el repositorio de Github y tener instalado la version de Java mas reciente desde su pagina oficial https://www.oracle.com/es/java/technologies/downloads/#jdk24-windows y con lanzar el desde el IDE el proyecto no deberia haber problemas. No deberia haber problemas con esto pero si queremos ya evitar estos pasos se dejará el enlace a una máquina virtual ya lista para importarla en tu ordenador.
 
 ## Uso
 
-> *EXPLICACIÓN*: É este apartado describe brevemente como se usará a aplicación Web do proxecto. Describe o uso da interface web *só o uso** (a modo de sumario) *dos aspectos máis relevantes do seu funcionamento** (máxima brevidade, coma se fose un anuncio reclamo ou comercial).
->
+Con la aplicación podrás gestionar tus tareas de forma sencilla y clara. Indicar a que proyectos estan asignados esas tareas en que entorno se encuentran y compartirlas con tus compañeros para que podais trabajarla juntos.
 
 ## Sobre o autor
 
-> *EXPLICACIÓN*: Realiza unha breve descrición de quen es (perfil profesional), os teus puntos fortes, ou tecnoloxías que máis dominas... a motivación do proxecto, tendo sobre todo en conta un nicho de mercado sen explotar.. *Non máis de 200 palabras**. Indica a forma fiable de contactar contigo durante o proceso de creación do proxecto.
+Soy estudiante de segundo de Desarrollo de Aplicaciones Web con gran interés en la programación,sobre todo en la parte de Backend por eso he querido trabajar con Java y usar uno de sus frameworks como Spring Boot y la parte de frontend por comodidad a la hora de trabajar me gusta usar JavaScript.
+La idea de que quería diseñar una aplicación pensada para nosotros para poder ser mas eficaces me dió por crear este proyecto propio y así poder mejorar mi lógica de programación.
+Si os interesa el proyecto y estaís interesados podeís contactar por el correo del perfil o por las Issus del proyecto.
 
 ## Licenza
 
-> *EXPLICACIÓN*: É requisito INDISPENSABLE o licenciar explicitamente o proxecto software. Recoméndase licenciar con GNU Free Documentation License Version 1.3*. Crear un ficheiro `LICENSE` na raiz do repo, co teu ficheiro de licenza. Lembra que se empregas unha licenza de software libre estás a autorizar a derivación da túa obra baixo a mesma licenza que elixas, podendo dar continuidade, p. e. outro alumno, para continuar o teu proxecto noutro curso.
+[text](LICENSE)
 
 ## Índice
-
-> *EXPLICACIÓN*: Simplemente indexa ordenadamente todo o tey proxecto.
 
 1. [Anteproyecto](doc/templates/1_Anteproxecto.md)
 2. [Análise](doc/templates/2_Analise.md)
@@ -58,9 +55,7 @@
 
 ## Guía de contribución
 
-> EXPLICACIÓN*: Tratándose dun proxecto de software libre, é moi importante que expoñas como se pode contribuír co teu proxecto. Algúns exemplos disto son realizar novas funcionalidades, corrección e/o optimización do código, realización de tests automatizados, novas interfaces de integración, desenvolvemento de plugins etc. Se o máis conciso que poidas.
+Se puede contribuír con el proyecto con mejoras del rendimiento o uso de nuevas librerías que puedan ayudar mejorar la eficacia del código.
 
 ## Links
 
-> EXPLICACIÓN*: Ligazóns externas e descipciones destas ligazóns que creas conveniente indicar aquí. Xeralmente xa van estar integrados coa túa documentación, pero se requires realizar unha listaxe deles, leste é o lugar.
->

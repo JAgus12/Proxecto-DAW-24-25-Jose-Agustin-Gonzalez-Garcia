@@ -10,9 +10,28 @@
 
 ## 1- Sitios web de documentación técnica
 
+https://docs.spring.io/spring-boot/documentation.html
+https://docs.oracle.com/en/java/
+https://developer.mozilla.org/es/docs/Web/JavaScript
+
 ## 2- Fontes de interes
 
+Youtube
+Stack overflow
+
 ## 3- Sitios oficiais do software utilizado
+
+Base de Datos 
+https://www.mysql.com/
+
+Backend
+https://www.java.com/es/ 
+https://spring.io/projects/spring-boot
+
+Frontend
+https://developer.mozilla.org/es/docs/Web/JavaScript
+https://developer.mozilla.org/es/docs/Web/HTML
+https://developer.mozilla.org/es/docs/Web/CSS
 
 ## 4- Normas ou documentos legais
 
