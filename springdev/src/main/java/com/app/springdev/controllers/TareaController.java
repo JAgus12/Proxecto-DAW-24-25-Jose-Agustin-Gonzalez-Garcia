@@ -62,8 +62,13 @@ public class TareaController {
     @PostMapping("/compartir")
     @Transactional
     public ResponseEntity<?> compartirTarea(@RequestBody CompartidoDto compartir){
-        this.tareaServiceManager.newCompartir(compartir);
-        return ResponseEntity.ok(Map.of("compartido con",compartir.getUsuario()));
+        CompartidoDto resultado=this.tareaServiceManager.newCompartir(compartir);
+        if(resultado==null){
+           return ResponseEntity.ok(Map.of("Resultado",null));
+        }else{
+           return ResponseEntity.ok(Map.of("compartido con",compartir.getUsuario()));
+        }
+        
     }
 
     @DeleteMapping("/{tarea_id}")

@@ -81,6 +81,9 @@ public class TareaServiceManager implements TareaService {
     public CompartidoDto newCompartir(CompartidoDto newCompartir) {
         Usuario u=this.usuarioRepository.findById(newCompartir.getUsuario()).get();
         Tarea t=this.tareaRepository.findById(newCompartir.getTarea_id()).get();
+        if(u.getTareasCompartidas().contains(t)){
+            return null;
+        }
         u.getTareasCompartidas().add(t);
         this.usuarioRepository.save(u);
         return newCompartir;

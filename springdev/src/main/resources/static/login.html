@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 </style>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -26,13 +27,13 @@
                     <label for="usuario">Usuario</label>
                 </p>
                 <p>
-                    <input type="text" name="usuario">
+                    <input type="text" name="usuario" required>
                 </p>    
                 <p>
                     <label for="password">Contraseña</label>
                 </p>
                 <p>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                 </p>
                   <i class="fa-solid fa-eye"></i>
                 <button type="submit">Iniciar Sesión</button>

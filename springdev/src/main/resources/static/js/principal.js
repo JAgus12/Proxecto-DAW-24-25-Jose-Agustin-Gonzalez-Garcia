@@ -610,10 +610,21 @@ $botonCompartir.addEventListener("click",ev=>{
         fExito:json=>{
             buscarUsuario(user,token)
             renderCompartidos(tareasCompartidas)
-           
+            
+            Swal.fire({
+                    icon: "success",
+                    title: "Tarea Compartida",
+                    scrollbarPadding: false
+                });
+            //console.log(json)
         },
         fError:error=>{
             console.log(error)
+            Swal.fire({
+                    icon: "warning",
+                    title: "Tarea ya esta Compartida",
+                    scrollbarPadding: false
+                });
         },
         data:{
             "tarea_id":id,
@@ -621,11 +632,7 @@ $botonCompartir.addEventListener("click",ev=>{
         }
     })
     document.getElementById('detalles').close()
-     Swal.fire({
-                    icon: "success",
-                    title: "Tarea Compartida",
-                    scrollbarPadding: false
-                });
+    
     }else{
         document.getElementById('detalles').close()
         Swal.fire({

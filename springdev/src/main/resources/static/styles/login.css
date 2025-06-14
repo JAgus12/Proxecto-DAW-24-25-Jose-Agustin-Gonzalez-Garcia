@@ -11,7 +11,7 @@ body {
     font-size: 15px;
     background-color: black;
     font-family: "Playfair Display",serif;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 img{
@@ -26,7 +26,7 @@ img{
 
 header{
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: space-between;
     padding: 0px 40px;
     background-color: black;

@@ -41,7 +41,12 @@ function comprobarLogin(password,usuario) {
                 window.location.href="/principal.html"
             }
         },
-        fError:error=>console.log(error),
+        fError:error=>
+            Swal.fire({
+                    icon: "warning",
+                    title: "Login Incorrecto",
+                    scrollbarPadding: false
+                }),
         data:{
             usuario:usuario,
             password:password
