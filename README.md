@@ -28,6 +28,12 @@ Para el backend Java con el framework Spring Boot,se ha usado para la autentific
 ## Instalación / Posta en marcha
 
 Para ponerlo en marcha necesitaremos instalar MySQL server https://dev.mysql.com/downloads/installer/ para tener funcionando una base de datos y workbench para gestionarla,para tener el código en funcionamiento necesitaremos un IDE como visual Studio,bajar el repositorio de Github y tener instalado la version de Java mas reciente desde su pagina oficial https://www.oracle.com/es/java/technologies/downloads/#jdk24-windows y con lanzar el desde el IDE el proyecto no deberia haber problemas. No deberia haber problemas con esto pero si queremos ya evitar estos pasos se dejará el enlace a una máquina virtual ya lista para importarla en tu ordenador.
+Aqui tendremos ya una base de datos con dos usuarios ya creados por si queremos hacer login,que serian pedro y maria con sus contraseñas claveSegura123.
+Si nos interesa entrar en la base de datos para ver los datos que se guardan etc la contraseña es abc123.
+Enlace a maquina Virtual
+https://mega.nz/file/HFl2AYAL#ixKG94lYR9H8vpAyejID58FMcPdRjSl7tEiE9zaPYMA
+User:admin
+contraseña:abc123.
 
 ## Uso
 
